@@ -5,5 +5,5 @@ var app = express();
 
 app.use(spotifyTools)
 
-console.log('Listening on 8000');
-app.listen(8000);
+console.log('Listening on 3000');
+app.listen(3000);
