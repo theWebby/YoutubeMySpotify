@@ -11,6 +11,10 @@ expressApp.use(bodyParser.urlencoded({
 expressApp.use(bodyParser.json())
 expressApp.use(express.static(__dirname + '/public'));
 
+expressApp.get('/login', function(req, res){
+    res.redirect('http://ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/login')
+})
+
 
 expressApp.post('/getVideoId', function(req, res){
     songName = req.body.songName;

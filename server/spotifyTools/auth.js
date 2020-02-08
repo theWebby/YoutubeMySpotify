@@ -54,7 +54,7 @@ authRouter.get('/callback', function (req, res) {
     url: 'https://accounts.spotify.com/api/token',
     form: {
       code: code,
-      redirect_uri: Oauth.redirect_uri, //fill this in________?
+      redirect_uri: 'http://localhost:3000', //fill this in________?
       grant_type: 'authorization_code'
     },
     headers: {
