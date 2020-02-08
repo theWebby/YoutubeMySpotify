@@ -1,0 +1,97 @@
+{
+    "timestamp" : 1581181730471,
+    "context" : {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/playlist/1iGs9wJ88prCVrw3oud3Wl"
+      },
+      "href" : "https://api.spotify.com/v1/playlists/1iGs9wJ88prCVrw3oud3Wl",
+      "type" : "playlist",
+      "uri" : "spotify:user:1163973345:playlist:1iGs9wJ88prCVrw3oud3Wl"
+    },
+    "progress_ms" : 70707,
+    "item" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/2SrSdSvpminqmStGELCSNd"
+          },
+          "href" : "https://api.spotify.com/v1/artists/2SrSdSvpminqmStGELCSNd",
+          "id" : "2SrSdSvpminqmStGELCSNd",
+          "name" : "Stormzy",
+          "type" : "artist",
+          "uri" : "spotify:artist:2SrSdSvpminqmStGELCSNd"
+        } ],
+        "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/5fkFWJ9LZizXE4yPenNGuy"
+        },
+        "href" : "https://api.spotify.com/v1/albums/5fkFWJ9LZizXE4yPenNGuy",
+        "id" : "5fkFWJ9LZizXE4yPenNGuy",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/ab67616d0000b2739536e13edd9e2e08d2dae94b",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/ab67616d00001e029536e13edd9e2e08d2dae94b",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/ab67616d000048519536e13edd9e2e08d2dae94b",
+          "width" : 64
+        } ],
+        "name" : "Gang Signs & Prayer",
+        "release_date" : "2017-02-24",
+        "release_date_precision" : "day",
+        "total_tracks" : 16,
+        "type" : "album",
+        "uri" : "spotify:album:5fkFWJ9LZizXE4yPenNGuy"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/2SrSdSvpminqmStGELCSNd"
+        },
+        "href" : "https://api.spotify.com/v1/artists/2SrSdSvpminqmStGELCSNd",
+        "id" : "2SrSdSvpminqmStGELCSNd",
+        "name" : "Stormzy",
+        "type" : "artist",
+        "uri" : "spotify:artist:2SrSdSvpminqmStGELCSNd"
+      }, {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/7uMh23xWiuR7zsNkuNcm2G"
+        },
+        "href" : "https://api.spotify.com/v1/artists/7uMh23xWiuR7zsNkuNcm2G",
+        "id" : "7uMh23xWiuR7zsNkuNcm2G",
+        "name" : "MNEK",
+        "type" : "artist",
+        "uri" : "spotify:artist:7uMh23xWiuR7zsNkuNcm2G"
+      } ],
+      "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 230654,
+      "explicit" : false,
+      "external_ids" : {
+        "isrc" : "UKJ4A1700011"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/0ihguwGVwKihJ1Nj8fGQlY"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/0ihguwGVwKihJ1Nj8fGQlY",
+      "id" : "0ihguwGVwKihJ1Nj8fGQlY",
+      "is_local" : false,
+      "name" : "Blinded By Your Grace, Pt. 2 (feat. MNEK)",
+      "popularity" : 65,
+      "preview_url" : "https://p.scdn.co/mp3-preview/1b1abdba3ea0b850e24b88ffaa87f15c768901de?cid=7d6e6d5684a3404e834793cca7f8382d",
+      "track_number" : 10,
+      "type" : "track",
+      "uri" : "spotify:track:0ihguwGVwKihJ1Nj8fGQlY"
+    },
+    "currently_playing_type" : "track",
+    "actions" : {
+      "disallows" : {
+        "resuming" : true
+      }
+    },
+    "is_playing" : true
+  }
