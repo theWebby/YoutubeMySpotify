@@ -84,7 +84,10 @@ authRouter.get('/callback', function (req, res) {
     } else {
       res.redirect('/#' +
         querystring.stringify({
-          error: 'invalid_token'
+          error: 'invalid_token',
+          status: response.statusCodem,
+          errorMessage: error
+
         }));
     }
   });
