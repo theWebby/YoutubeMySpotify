@@ -54,7 +54,7 @@ authRouter.get('/callback', function (req, res) {
     url: 'https://accounts.spotify.com/api/token',
     form: {
       code: code,
-      redirect_uri: 'http://localhost:80/callback', //fill this in________?
+      redirect_uri: Oauth.redirect_uri, //fill this in________?
       grant_type: 'authorization_code'
     },
     headers: {
@@ -74,7 +74,7 @@ authRouter.get('/callback', function (req, res) {
       
       //back to the client
       // res.json(JSON.stringify({ access_token, refresh_token }))
-      res.redirect('http://localhost:3000/?' +
+      res.redirect(uri + '?' +
         querystring.stringify({
           access_token: access_token,
           refresh_token: refresh_token
