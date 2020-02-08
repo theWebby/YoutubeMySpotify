@@ -1,0 +1,39 @@
+{
+
+    "manifest_version": 2,
+    "name": "Youtube My Spotify",
+    "version": "1.0",
+  
+    "description": "Youtubes your spotify",
+  
+    "icons": {
+        "16":  "resources/icons/icon_016.png",
+        "32":  "resources/icons/icon_032.png",
+        "48":  "resources/icons/icon_048.png",
+        "128": "resources/icons/icon_128.png"
+	},
+	
+	"permissions": [
+		"storage"
+	],
+
+	"content_scripts": [
+		{
+		  "matches": ["*://*.youtube.com/*"],
+		  "js": ["youtubeMySpotify.js"]
+		}
+	],
+
+    "browser_action": {
+        "default_icon": {
+            "16":  "resources/icons/icon_016.png",
+            "32":  "resources/icons/icon_032.png",
+            "48":  "resources/icons/icon_048.png",
+            "128": "resources/icons/icon_128.png"
+		},
+		"default_title": "Youtube My Spotify",
+    	"default_popup": "popup/popup.html"
+  	},
+  
+	"content_security_policy": "default-src 'self'"
+  }

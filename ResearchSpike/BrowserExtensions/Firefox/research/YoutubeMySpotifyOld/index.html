@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com/"> -->
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://s.ytimg.com/yts/jsbin/www-widgetapi-vflWjyjuR/www-widgetapi.js https://www.youtube.com/">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" 
+        content="script-src 'self' https://www.youtube.com; 
+        child-src https://www.youtube.com;"> -->
+    <meta charset="utf-8" />
+    <title>Youtube My Spotify</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+
+    <style type="text/css">
+        .text-overflow {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 500px;
+        }
+        
+        .container {
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript" src="onYoutubApiReady.js"></script>
+    <div class="container">
+        <div id="login">
+            <h1>YoutubeMySpotify</h1>
+            <h3>How to use:</h3>
+            <ol>
+                <li>Open Spotify</li>
+                <li>Play (good) music on Spotify</li>
+                <li>Watch the player update with the music video from Youtube</li>
+            </ol>
+            <br>
+
+            <h3>But First!</h3>
+            <p>You need to log in to Spotify here so we know who's music to listen to!</p>
+            <a class="btn btn-primary" id="loginBtn">Log in with Spotify</a>
+            <br><br><br>
+
+            <h4>By the way...</h4>
+            <p>The music video length will take priority over the song length on Spotify. To do this, we will pause Spotify when it nears the end of a song, preventing your music video being cut to the length of the song.</p>
+        </div>
+        <div id="loggedIn">
+            <h1>hello world</h1>
+            <div id="player"></div>
+            <!-- <script>
+                    function onYouTubeIframeAPIReady() {
+                        alert("hey");
+                        player = new YT.Player('player', {
+                            // height: '720',
+                            // width: '1280',
+                            // videoId: '1_QO8LoGNpc',
+                            events: {
+                                'onReady': onPlayerReady,
+                                'onStateChange': onPlayerStateChange
+                            }
+                        });
+                    }
+                </script> -->
+
+            <script src="https://www.youtube.com/iframe_api"></script>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="lib/jquery-1.4.3.min.js"></script>
+    <script type="text/javascript" src="spotifyAuth.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="youtubeMySpotify.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!doctype html>
+<html>
+  <head>
+
+    <title>Example of the Authorization Code flow with Spotify</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style type="text/css">
+      #login, #loggedin {
+        display: none;
+      }
+      .text-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 500px;
+      }
+
+      .container{
+          width: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="login">
+        <h1>YoutubeMySpotify</h1>
+        <h3>How to use:</h3>
+        <ol>
+            <li>Open Spotify</li>
+            <li>Play (good) music on Spotify</li>
+            <li>Watch the player update with the music video from Youtube</li>
+        </ol>
+        <br>
+
+        <h3>But First!</h3>
+        <p>You need to log in to Spotify here so we know who's music to listen to!</p>
+        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+      </div>
+      <br><br><br>
+
+      <h4>By the way...</h4>
+      <p>The music video length will take priority over the song length on Spotify. To do this, we will pause Spotify when it nears the end of a song, preventing 
+          your music video being cut to the length of the song.</p>
+    </div>
+
+    <script id="user-profile-template" type="text/x-handlebars-template"></script>
+
+    <script id="oauth-template" type="text/x-handlebars-template">
+      <h2>oAuth info</h2>
+      <dl class="dl-horizontal">
+        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+        <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}</dd>
+      </dl>
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+      (function() {
+
+        /**
+         * Obtains parameters from the hash of the URL
+         * @return Object
+         */
+        function getHashParams() {
+          var hashParams = {};
+          var e, r = /([^&;=]+)=?([^&;]*)/g,
+              q = window.location.hash.substring(1);
+          while ( e = r.exec(q)) {
+             hashParams[e[1]] = decodeURIComponent(e[2]);
+          }
+          return hashParams;
+        }
+
+        console.log("start")
+        var userProfileSource = document.getElementById('user-profile-template').innerHTML,
+            userProfileTemplate = Handlebars.compile(userProfileSource),
+            userProfilePlaceholder = document.getElementById('user-profile');
+
+        var oauthSource = document.getElementById('oauth-template').innerHTML,
+            oauthTemplate = Handlebars.compile(oauthSource),
+            oauthPlaceholder = document.getElementById('oauth');
+
+        var params = getHashParams();
+
+        var access_token = params.access_token,
+            refresh_token = params.refresh_token,
+            error = params.error;
+
+		console.log(access_token)
+        if (error) {
+          alert('There was an error during the authentication');
+        } else {
+          if (access_token) {
+            // render oauth info
+            oauthPlaceholder.innerHTML = oauthTemplate({
+              access_token: access_token,
+              refresh_token: refresh_token
+            });
+
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me',
+                headers: {
+                  'Authorization': 'Bearer ' + access_token
+                },
+                success: function(response) {
+                  userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+
+                  $('#login').hide();
+                  $('#loggedin').show();
+                }
+            });
+          } else {
+              // render initial screen
+              $('#login').show();
+              $('#loggedin').hide();
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
+ -->
