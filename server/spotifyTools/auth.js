@@ -2,7 +2,7 @@ var { Router } = require('express')
 var querystring = require('querystring');
 var request = require('request'); // "Request" library
 
-const uri = 'http://localhost:3000/';
+const uri = 'ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/';
 
 var authRouter = Router()
 var Oauth = {
