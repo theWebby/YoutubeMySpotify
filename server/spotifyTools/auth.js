@@ -2,7 +2,7 @@ var { Router } = require('express')
 var querystring = require('querystring');
 var request = require('request'); // "Request" library
 
-const uri = 'http://localhost:80/';
+const uri = 'http://localhost:3000/';
 
 var authRouter = Router()
 var Oauth = {
