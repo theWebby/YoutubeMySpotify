@@ -4,6 +4,10 @@ const spotifyApi = {
     }, 
 
     pause(){
+        return request('https://api.spotify.com/v1/me/player/pause', 'PUT')
+    },
 
+    skip(){
+        return request('https://api.spotify.com/v1/me/player/next', 'POST');
     }
 }

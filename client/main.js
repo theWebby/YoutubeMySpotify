@@ -1,28 +1,58 @@
 require('./run-client-server')
 
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, screen } = require('electron')
 
-const path = require('path')
-const os = require('os')
 
 function createWindow() {
   // Create the browser window.
-  BrowserWindow.addExtension('./Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.24.4_0');
+  // BrowserWindow.addExtension('./Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.24.4_0');
+  const primaryDisplay = screen.getPrimaryDisplay();
+
+  const { width, height } = primaryDisplay.bounds
 
   let win = new BrowserWindow({
     webPreferences: {
       nodeIntegration: true
     },
-    // backgroundColor: '#000'
+    height,
+    width,
+    backgroundColor: '#222'
   })
 
-  win.setPosition(2300, 300);
+  // win.webContents.openDevTools() //remove for prod
+  win.setPosition(0, 0);
+
   // win.setFullScreen(true);
-  win.setAlwaysOnTop(true);
-  win.setAlwaysOnTop(false);
+  // win.setAlwaysOnTop(true);
+  // win.setAlwaysOnTop(false);
   win.removeMenu()
   win.loadURL('http://localhost:3000/login')
-  win.webContents.openDevTools() //remove for prod
+
+  const { session } = require('electron')
+
+  // Modify the user agent for all requests to the following urls.
+  const filter = {
+    urls: []//'*://*/*', '*://*/pagead/*', '*://*/*/pagead/*', '*://static.doubleclick.net/*', '*://googleads.g.doubleclick.net/*', '*://www.google.com/js/bg/*', '*://www.youtube.com/annotations_invideo/*']
+  }
+
+  
+  const myFilters = ['doubleclick', 'pagead', 'js/bg', 'annotations_invideo', 'get_midroll_info', 'ptracking']
+  session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
+    let now = new Date().getTime();
+    // console.log(now.getTime());
+    let shouldBlock = myFilters.some(myFilter => {
+      return details.url.includes(myFilter);
+    })
+
+    console.log(new Date().getTime() - now)
+    if (shouldBlock){
+      return
+    }
+
+    callback({ requestHeaders: details.requestHeaders })
+  })
 }
+
+
 
 app.whenReady().then(createWindow)

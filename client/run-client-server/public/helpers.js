@@ -5,6 +5,9 @@ function request(theUrl, method = "GET", params = null){
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
                 resolve(JSON.parse(xmlHttp.responseText));
             }
+            else if (xmlHttp.readyState == 4){
+                reject()
+            }
         }
         xmlHttp.open(method, theUrl, true); // true for asynchronous 
         xmlHttp.setRequestHeader('Authorization', 'Bearer ' + accessToken)

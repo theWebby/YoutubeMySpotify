@@ -8,9 +8,9 @@ const playerReady = false;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        height: '390',
-        width: '640',
-        videoId: 'dPI-mRFEIH0',
+        height: '800',
+        width: '1600',
+        videoId: 'D7npse9n-Yw',
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -27,17 +27,35 @@ function onPlayerStateChange(event) {
 
 }
 
+function skipAtEndOfVideo(seconds){
+    if(!playerLoaded()){
+        return
+    }
+    
+    console.log('player', player)
+    console.log('duration', player.getDuration())
+    console.log('current time', player.getCurrentTime())
+    if (player.getPlayerState() != 1){
+        return
+    }
+
+    if (player.getDuration() - player.getCurrentTime() < seconds){
+        spotifyApi.skip()
+    }
+}
+
 function playerLoaded(){
     return typeof player.loadVideoById == 'function'
 }
 
 function updatePlayer(id){
-    console.log('id', id);
-
     if (playerLoaded()){
-        player.loadVideoById(id, 0);
+        if(id){
+            console.log('Loading video:', id);
+            player.loadVideoById(id, 0);
+        }
     }
     else{
-        setTimeout(updatePlayer, 10)
+        setTimeout(() => updatePlayer(id), 10)
     }
 }
