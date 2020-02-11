@@ -19,7 +19,7 @@ function createWindow() {
     backgroundColor: '#222'
   })
 
-  win.webContents.openDevTools() //remove for prod
+  // win.webContents.openDevTools() //remove for prod
   win.setPosition(0, 0);
 
   // win.setFullScreen(true);

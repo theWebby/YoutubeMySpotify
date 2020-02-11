@@ -54,15 +54,14 @@ async function pauseSpotifyIfNearEnd(currentlyPlaying) {
 
 async function main() {
     try {
-        console.log('hello')
         const { currentlyPlaying, isNew } = await getCurrentlyPlaying().catch(async e => {
-            console.log('hello1')
-            if (e.status == 401){
-                console.log("Requesting new Access Token")
-                accessToken = await spotifyApi.getNewAccessToken(refreshToken).accessToken;
+            if (e.status == 401) {
+                console.log("WOW, you've been here a while. Requesting a new Access token.")
+                const { accessToken: newAccessToken } = await spotifyApi.getNewAccessToken(refreshToken);
+                accessToken = newAccessToken;
             }
         });
-    
+
         if (currentlyPlaying) {
 
             if (isNew) {
@@ -72,16 +71,14 @@ async function main() {
 
             pauseSpotifyIfNearEnd(currentlyPlaying);
         }
-        
-        console.log(accessToken)
-        accessToken = await spotifyApi.getNewAccessToken(refreshToken).accessToken;
+
         skipAtEndOfVideo(2)
         setTimeout(main, REFRESH_INTERVAL)
     }
-    catch(e){
+    catch (e) {
         setTimeout(main, REFRESH_INTERVAL);
     }
-    
+
 }
 
 main()
