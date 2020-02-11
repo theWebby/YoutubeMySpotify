@@ -19,7 +19,7 @@ function createWindow() {
     backgroundColor: '#222'
   })
 
-  // win.webContents.openDevTools() //remove for prod
+  win.webContents.openDevTools() //remove for prod
   win.setPosition(0, 0);
 
   // win.setFullScreen(true);
@@ -30,21 +30,13 @@ function createWindow() {
 
   const { session } = require('electron')
 
-  // Modify the user agent for all requests to the following urls.
-  const filter = {
-    urls: []//'*://*/*', '*://*/pagead/*', '*://*/*/pagead/*', '*://static.doubleclick.net/*', '*://googleads.g.doubleclick.net/*', '*://www.google.com/js/bg/*', '*://www.youtube.com/annotations_invideo/*']
-  }
-
   
   const myFilters = ['doubleclick', 'pagead', 'js/bg', 'annotations_invideo', 'get_midroll_info', 'ptracking']
   session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
-    let now = new Date().getTime();
-    // console.log(now.getTime());
     let shouldBlock = myFilters.some(myFilter => {
       return details.url.includes(myFilter);
     })
-
-    console.log(new Date().getTime() - now)
+    
     if (shouldBlock){
       return
     }

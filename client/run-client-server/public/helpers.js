@@ -1,12 +1,12 @@
 function request(theUrl, method = "GET", params = null){
     return new Promise((resolve, reject) => {
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function() { 
+        xmlHttp.onreadystatechange = function() {     
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
                 resolve(JSON.parse(xmlHttp.responseText));
             }
-            else if (xmlHttp.readyState == 4){
-                reject()
+            if (xmlHttp.readyState == 4){
+                reject(xmlHttp)
             }
         }
         xmlHttp.open(method, theUrl, true); // true for asynchronous 

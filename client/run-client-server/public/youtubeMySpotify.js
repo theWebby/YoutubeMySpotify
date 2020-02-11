@@ -1,6 +1,6 @@
 const params = (new URL(document.location)).searchParams;
-const accessToken = params.get("access_token");
 const refreshToken = params.get("refresh_token");
+let accessToken = params.get("access_token");
 
 const REFRESH_INTERVAL = 500;
 
@@ -54,7 +54,14 @@ async function pauseSpotifyIfNearEnd(currentlyPlaying) {
 
 async function main() {
     try {
-        const { currentlyPlaying, isNew } = await getCurrentlyPlaying()
+        console.log('hello')
+        const { currentlyPlaying, isNew } = await getCurrentlyPlaying().catch(async e => {
+            console.log('hello1')
+            if (e.status == 401){
+                console.log("Requesting new Access Token")
+                accessToken = await spotifyApi.getNewAccessToken(refreshToken).accessToken;
+            }
+        });
     
         if (currentlyPlaying) {
 
@@ -65,12 +72,13 @@ async function main() {
 
             pauseSpotifyIfNearEnd(currentlyPlaying);
         }
-
+        
+        console.log(accessToken)
+        accessToken = await spotifyApi.getNewAccessToken(refreshToken).accessToken;
         skipAtEndOfVideo(2)
         setTimeout(main, REFRESH_INTERVAL)
     }
     catch(e){
-        console.log(e)
         setTimeout(main, REFRESH_INTERVAL);
     }
     
