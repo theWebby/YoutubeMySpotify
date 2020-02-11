@@ -57,43 +57,30 @@ authRouter.get('/callback', function (req, res) {
       redirect_uri: Oauth.redirect_uri, //fill this in________?
       grant_type: 'authorization_code'
     },
-    headers: {
-      //   'Authorization': 'Basic ' + (new Buffer(Oauth.client_id + ':' + Oauth.client_secret).toString('base64'))
-      'Authorization': 'Basic ' + authHeader
-    },
+    headers: { 'Authorization': 'Basic ' + authHeader },
     json: true
   };
-
-  console.log(authOptions)
 
   request.post(authOptions, function (error, response, body) {
     if (!error && response.statusCode === 200) {
 
       var access_token = body.access_token,
         refresh_token = body.refresh_token;
-      console.log("yay")
-      console.log(access_token)
       
-      //back to the client
-      // res.json(JSON.stringify({ access_token, refresh_token }))
       res.redirect('http://localhost:3000/?' +
         querystring.stringify({
           access_token: access_token,
           refresh_token: refresh_token
         }));
-      //     Oauth.access_token = access_token
-      //     Oauth.refresh_token = refresh_token
     } else {
       res.redirect('/#' +
         querystring.stringify({
           error: 'invalid_token',
           status: response.statusCodem,
           errorMessage: error
-
         }));
     }
   });
-  // }
 });
 
 authRouter.get('/refresh_token', function (req, res) {
