@@ -72,10 +72,11 @@ async function main() {
             pauseSpotifyIfNearEnd(currentlyPlaying);
         }
 
-        skipAtEndOfVideo(2)
+        await skipAtEndOfVideo(2)
         setTimeout(main, REFRESH_INTERVAL)
     }
     catch (e) {
+        console.log(e)
         setTimeout(main, REFRESH_INTERVAL);
     }
 

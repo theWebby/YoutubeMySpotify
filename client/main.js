@@ -1,7 +1,7 @@
 require('./run-client-server')
 
 const { app, BrowserWindow, screen } = require('electron')
-
+const debug = process.env.DEBUG || false;
 
 function createWindow() {
   // Create the browser window.
@@ -19,12 +19,10 @@ function createWindow() {
     backgroundColor: '#222'
   })
 
-  // win.webContents.openDevTools() //remove for prod
-  win.setPosition(0, 0);
+  if(debug){
+    win.webContents.openDevTools()
+  }
 
-  // win.setFullScreen(true);
-  // win.setAlwaysOnTop(true);
-  // win.setAlwaysOnTop(false);
   win.removeMenu()
   win.loadURL('http://localhost:3000/login')
 

@@ -27,18 +27,27 @@ function onPlayerStateChange(event) {
 
 }
 
-function skipAtEndOfVideo(seconds){
+async function skipAtEndOfVideo(seconds){
     if(!playerLoaded()){
         return
+    }
+
+    const playerState = player.getPlayerState();
+    if (playerState == 0){
+        //player state remains 0 for a second while the new video is loaded. The below skip is not affected because when the video ends the play head is moved to the start.
+        await setTimeout(spotifyApi.skip(), 3000);
     }
     
     console.log('player', player)
     console.log('duration', player.getDuration())
     console.log('current time', player.getCurrentTime())
+    console.log('player state', player.getPlayerState())
     if (player.getPlayerState() != 1){
         return
     }
 
+    console.log('player state', player.getPlayerState())
+    console.log('time remaining', player.getDuration() - player.getCurrentTime())
     if (player.getDuration() - player.getCurrentTime() < seconds){
         spotifyApi.skip()
     }
