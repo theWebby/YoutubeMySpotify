@@ -57,8 +57,8 @@ async function main() {
         const { currentlyPlaying, isNew } = await getCurrentlyPlaying().catch(async e => {
             if (e.status == 401) {
                 console.log("WOW, you've been here a while. Requesting a new Access token.")
-                const { accessToken: newAccessToken } = await spotifyApi.getNewAccessToken(refreshToken);
-                accessToken = newAccessToken;
+                const { access_token } = await spotifyApi.getNewAccessToken(refreshToken);
+                accessToken = access_token;
             }
         });
 

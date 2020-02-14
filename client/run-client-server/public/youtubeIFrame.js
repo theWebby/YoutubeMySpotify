@@ -38,16 +38,10 @@ async function skipAtEndOfVideo(seconds){
         await setTimeout(spotifyApi.skip(), 3000);
     }
     
-    console.log('player', player)
-    console.log('duration', player.getDuration())
-    console.log('current time', player.getCurrentTime())
-    console.log('player state', player.getPlayerState())
     if (player.getPlayerState() != 1){
         return
     }
 
-    console.log('player state', player.getPlayerState())
-    console.log('time remaining', player.getDuration() - player.getCurrentTime())
     if (player.getDuration() - player.getCurrentTime() < seconds){
         spotifyApi.skip()
     }
