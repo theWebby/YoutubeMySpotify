@@ -12,3 +12,8 @@ This is the one.
 When signing into Spotify via facebook, sometimes facebook will give an error stating "Cookies are not enabled on your browser..." yada yada yada. 
 
 To fix this issue, close and reopen the YoutubeMySpotify App.
+
+### You can't use this feature at the moment
+When signing into Spotify via facebook, sometimes facebook will give an error stating "You can't use this feature at the moment..." yada yada yada. 
+
+To fix this issue, close and reopen the YoutubeMySpotify App.
