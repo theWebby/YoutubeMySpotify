@@ -2,11 +2,12 @@
   "name": "tmp-create-react-app",
   "version": "1.0.0",
   "description": "",
-  "main": "electron.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start-electron": "electron .",
     "start-server": "node server.js",
+    "build-react-start-electron": "npm run build-react && npm run start-electron",
+    "build-react": "cd react-app && npm run build && cd ..",
     "build": "electron-builder ."
   },
   "keywords": [],

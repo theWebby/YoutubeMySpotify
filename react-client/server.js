@@ -12,10 +12,6 @@ expressApp.use(bodyParser.urlencoded({
 expressApp.use(bodyParser.json())
 expressApp.use('/static', express.static(__dirname + '/react-app/build/static'));
 
-// expressApp.get('/', function(req, res){
-
-// })
-
 expressApp.get('/', function(req, res) {
  res.sendFile(path.join(__dirname, './react-app/build', 'index.html'));
 });
