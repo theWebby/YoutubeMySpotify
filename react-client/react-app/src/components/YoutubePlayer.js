@@ -1,5 +1,4 @@
 import React from 'react';
-import YouTube from 'react-youtube';
 
 class YoutubePlayer extends React.Component {
   constructor(props){
@@ -38,8 +37,11 @@ class YoutubePlayer extends React.Component {
 
   onPlayerReady = event => {
     this.player = event.target;
-    this.player.loadVideoById("gpStPNAB7Cw", 0);
   };
+
+  loadVideoById(id){
+    this.player.loadVideoById(id, 0);
+  }
 
   render = () => {
     const { id } = this.props;

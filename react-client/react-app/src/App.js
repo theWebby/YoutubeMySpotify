@@ -1,7 +1,5 @@
 import React from 'react';
 import YoutubePlayer from './components/YoutubePlayer.js';
-import logo from './logo.svg';
-import './App.css';
 
 class App extends React.Component {
   constructor(){
@@ -9,19 +7,17 @@ class App extends React.Component {
     this.state = { 
       isTrue: true
     };
+    this.player = React.createRef();
+  }
+
+  someFunction = () => {
+    this.player.current.loadVideoById("gpStPNAB7Cw")
   }
 
   render() {
-    const opts = {
-      height: '390',
-      width: '640',
-      playerVars: { // https://developers.google.com/youtube/player_parameters
-        autoplay: 1
-      }
-    };
-
     return (
       <YoutubePlayer
+        ref={this.player}
         id="2g811Eo7K8U"
       />
     );
