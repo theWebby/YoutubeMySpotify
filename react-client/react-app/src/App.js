@@ -1,4 +1,5 @@
 import React from 'react';
+import YoutubePlayer from './components/YoutubePlayer.js';
 import logo from './logo.svg';
 import './App.css';
 
@@ -8,33 +9,22 @@ class App extends React.Component {
     this.state = { 
       isTrue: true
     };
-
-    this.someFunction()
   }
 
-  someFunction = () => {
-    this.setState({isTrue: !this.state.isTrue})
-    setTimeout(this.someFunction, 500);
-  }
-  
   render() {
+    const opts = {
+      height: '390',
+      width: '640',
+      playerVars: { // https://developers.google.com/youtube/player_parameters
+        autoplay: 1
+      }
+    };
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            {this.state.isTrue ? 'Working...' : ' '} 
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          </a>
-        </header>
-      </div>
-    )
+      <YoutubePlayer
+        id="2g811Eo7K8U"
+      />
+    );
   };
 }
 
