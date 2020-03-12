@@ -4,6 +4,7 @@ import AccountManager from "./components/AccountManager";
 import Header from "./components/Header/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { AccountManagerContainer } from "./components/AccountManager/styled";
 
 class App extends React.Component {
   constructor() {
@@ -28,7 +29,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.props.location)
     return (
       <div>
         <Header></Header>
@@ -38,10 +38,14 @@ class App extends React.Component {
               <YoutubeMySpotify />
             </Route>
             <Route path="/AccountManager">
-              <AccountManager />
+              <AccountManagerContainer>
+                <AccountManager />
+              </AccountManagerContainer>
             </Route>
             <Route path="/">
-              <AccountManager />
+            <AccountManagerContainer>
+                <AccountManager />
+              </AccountManagerContainer>
             </Route>
           </Switch>
         </Router>
