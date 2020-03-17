@@ -7,8 +7,7 @@ class AccountSummary extends React.Component {
   }
 
   render = () => {
-    const { profile} = this.props
-    console.log('summary props', profile)
+    const { profile } = this.props
 
     return (
       <AccountSummaryContainer>

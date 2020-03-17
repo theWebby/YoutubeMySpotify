@@ -1,5 +1,6 @@
 export default function request(theUrl, method, accessToken, params = null){
     return new Promise((resolve, reject) => {
+        console.log('here')
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function() {     
             if (xmlHttp.readyState === 4 && xmlHttp.status === 200){

@@ -56,7 +56,7 @@ class AccountManager extends React.Component {
     if(stayLoggedIn){
       const newUserId = currentUser.profile.id
 
-      if (!users.some(user => user.profile.id == newUserId)){
+      if (!users.some(user => user.profile.id === newUserId)){
         users.push(currentUser);
         this.setState({users})
       }
@@ -65,6 +65,7 @@ class AccountManager extends React.Component {
     window.localStorage.setItem('currentUser', JSON.stringify(currentUser));
     window.localStorage.setItem('users', JSON.stringify(users));
 
+    this.props.loginCallback()
     this.props.history.push("/YoutubeMySpotify");
   }
 

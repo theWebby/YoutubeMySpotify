@@ -14,7 +14,7 @@ props: {
 */
 function DropdownButton (props){
     return (
-      <Dropdown>
+      <Dropdown alignRight>
         <Dropdown.Toggle variant={props.variant} id="dropdown-basic">
           {props.text}
         </Dropdown.Toggle>
