@@ -31,6 +31,8 @@ authRouter.get('/login', function (req, res) {
   // client application requests authorization
   var scope = 'user-read-private user-read-email user-read-currently-playing user-read-playback-state user-modify-playback-state';
   res.header("Access-Control-Allow-Origin", "*");
+  res.header("Cache-Control", "no-store");
+  res.header("Cache-Control", "no-cache");
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
