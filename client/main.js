@@ -1,7 +1,7 @@
 require('./run-client-server')
 
 const { app, BrowserWindow, screen } = require('electron')
-const debug = process.env.DEBUG || false;
+const debug = process.env.DEBUG || true;
 
 function createWindow() {
   // Create the browser window.
