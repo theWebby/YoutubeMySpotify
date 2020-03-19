@@ -92,7 +92,7 @@ class AccountManager extends React.Component {
           <div>
             <p>Would you like to add a new one?</p>
             {users.map(user => <StoredUser {...user} />)}
-            <button onClick={() => window.location.href = LOGIN_URL}>Log in</button>
+            <Button onClick={() => window.location.href = LOGIN_URL}>Log in</Button>
           </div>
         </div>
       )
