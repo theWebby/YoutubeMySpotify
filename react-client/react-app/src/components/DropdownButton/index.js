@@ -21,7 +21,9 @@ function DropdownButton (props){
 
         <Dropdown.Menu>
           {props.items.map(item => {
-            return <Dropdown.Item href={item.href}>{item.text}</Dropdown.Item>
+            return Object.keys(item).length
+              ? <Dropdown.Item href={item.href}>{item.text}</Dropdown.Item>
+              : <Dropdown.Divider />
           })}
         </Dropdown.Menu>
       </Dropdown>

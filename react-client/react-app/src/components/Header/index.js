@@ -23,9 +23,10 @@ class Header extends React.Component {
       } 
     })
 
+    items.push({}) //divider
     items.push({
         href: '/AccountManager',
-        text: items.length ? 'Account Manager' : 'No Accounts'
+        text: 'Account Manager'
       }
     )
 

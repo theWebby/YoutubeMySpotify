@@ -3,9 +3,10 @@ import { LOGIN_URL } from '../../constants';
 import queryString from 'query-string';
 import { withRouter } from 'react-router-dom'
 import SpotifyApi from '../../api/spotifyApi'
-import AccountSummary from "../AccountSummary"
-import StoredUser from "../StoredUser"
+import AccountSummary from "./AccountSummary"
+import StoredUser from "./StoredUser"
 import { StyledButton as Button } from "./styled"
+import { setCurrentUser, getUsers, setUsers } from './helpers'
 
 class AccountManager extends React.Component {
   constructor(props) {
@@ -18,9 +19,13 @@ class AccountManager extends React.Component {
     this.spotifyApi = new SpotifyApi(this.state.currentUser.accessToken, this.state.currentUser.refresh_token)
   }
 
+  updateUsers = () => {
+    this.setState({users: getUsers()})
+  }
+
   getStoredUsers(){
-    const users = JSON.parse(window.localStorage.getItem('users'));
-    return users || [];
+    const users = getUsers();
+    return users;
   }
 
   getCurrentUserFromLocation(location){
@@ -62,8 +67,8 @@ class AccountManager extends React.Component {
       }
     }
 
-    window.localStorage.setItem('currentUser', JSON.stringify(currentUser));
-    window.localStorage.setItem('users', JSON.stringify(users));
+    setCurrentUser(currentUser);
+    setUsers(users)
 
     this.props.loginCallback()
     this.props.history.push("/YoutubeMySpotify");
@@ -86,14 +91,12 @@ class AccountManager extends React.Component {
     else{
       return (
         <div>
-          <div>
-            Here is a list of your accounts
-          </div>
-          <div>
-            <p>Would you like to add a new one?</p>
-            {users.map(user => <StoredUser {...user} />)}
-            <Button onClick={() => window.location.href = LOGIN_URL}>Log in</Button>
-          </div>
+
+          <p>{users.length ? 'Your saved accounts...' : 'No Accounts'}</p>
+          {users.map(user => <StoredUser user={user} updateUsers={this.updateUsers}/>)}
+          <br />
+          <Button onClick={() => window.location.href = LOGIN_URL}>Add a new Account</Button>
+        
         </div>
       )
     }

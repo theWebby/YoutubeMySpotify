@@ -1,10 +1,10 @@
 require('./server.js')
 
 const { app, BrowserWindow } = require('electron')
-const { deleteCookies } = require('./electronHelpers')
+const { deleteCookies, runAdBlocker } = require('./electronHelpers')
 
 async function createWindow () {
-  await deleteCookies();
+  await deleteCookies(); 
 
   // Create the browser window.
   let win = new BrowserWindow({
@@ -18,6 +18,9 @@ async function createWindow () {
 
   // and load the index.html of the app.
   win.loadURL('http://localhost:3000/')
+
+
+  
 }
 
 app.whenReady().then(createWindow)

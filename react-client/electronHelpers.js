@@ -23,3 +23,18 @@ exports.deleteCookies = async () => {
     return error
   })
 }
+
+exports.runAdBlockers = () => {
+  const myFilters = ['doubleclick', 'pagead', 'js/bg', 'annotations_invideo', 'get_midroll_info', 'ptracking']
+  session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
+    let shouldBlock = myFilters.some(myFilter => {
+      return details.url.includes(myFilter);
+    })
+    
+    if (shouldBlock){
+      return
+    }
+
+    callback({ requestHeaders: details.requestHeaders })
+  })
+}
