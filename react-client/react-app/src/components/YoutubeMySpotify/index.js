@@ -1,6 +1,6 @@
 import React from "react";
 import YoutubePlayer from './YoutubePlayer'
-import SpotifyPlayer from '../SpotifyPlayer'
+import SpotifyPlayer from './SpotifyPlayer'
 
 class YoutubeMySpotify extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class YoutubeMySpotify extends React.Component {
   render = () => {
     return (
       <div>
-        <YoutubePlayer ref={this.player} id="2g811Eo7K8U" />
+        <YoutubePlayer ref={this.player} id="iAtomM7ybOM" />
         <SpotifyPlayer {...this.props}></SpotifyPlayer>
       </div>
     );

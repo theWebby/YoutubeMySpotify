@@ -1,5 +1,5 @@
 import React from "react";
-import SpotifyApi from '../../api/spotifyApi'
+import SpotifyApi from '../../../api/spotifyApi'
 
 class YoutubeMySpotify extends React.Component {
   constructor(props) {
