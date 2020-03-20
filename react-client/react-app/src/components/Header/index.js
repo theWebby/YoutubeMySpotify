@@ -1,6 +1,6 @@
 import React from "react";
 import { HeaderContainer, HeaderText } from "./styled";
-import DropdownButton from "../DropdownButton"
+import DropdownButton from "./DropdownButton"
 
 class Header extends React.Component {
   constructor(props) {

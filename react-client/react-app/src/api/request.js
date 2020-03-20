@@ -10,8 +10,11 @@ export default function request(theUrl, method, accessToken, params = null){
                 reject(xmlHttp)
             }
         }
+
         xmlHttp.open(method, theUrl, true); // true for asynchronous 
-        xmlHttp.setRequestHeader('Authorization', 'Bearer ' + accessToken)
+        if (accessToken){
+            xmlHttp.setRequestHeader('Authorization', 'Bearer ' + accessToken)
+        }
         if (params){
             xmlHttp.setRequestHeader('Content-Type', 'application/json');
         }
