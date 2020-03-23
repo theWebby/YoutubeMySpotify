@@ -6,12 +6,10 @@ import { withRouter } from 'react-router-dom'
 
 class StoredUser extends React.Component {
   constructor(props) {
-    console.log(props)
     super();
   }
 
-  preventBubble = (e) => {
-    if (!e) var e = window.event;
+  preventBubble = (e = window.event) => {
     e.cancelBubble = true;
     if (e.stopPropagation) e.stopPropagation();
   }

@@ -4,7 +4,7 @@ export const setCurrentUser = (currentUser) => {
 
 export const deleteUser = (userToDelete) => {
     const users = getUsers();
-    const newUsers = users.filter(user => user.profile.id != userToDelete.profile.id)
+    const newUsers = users.filter(user => user.profile.id !== userToDelete.profile.id)
     setUsers(newUsers);
 }
 

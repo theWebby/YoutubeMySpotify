@@ -93,7 +93,7 @@ class AccountManager extends React.Component {
         <div>
 
           <p>{users.length ? 'Your saved accounts...' : 'No Accounts'}</p>
-          {users.map(user => <StoredUser user={user} updateUsers={this.updateUsers}/>)}
+          {users.map((user, index) => <StoredUser user={user} updateUsers={this.updateUsers} key={index}/>)}
           <br />
           <Button onClick={() => window.location.href = LOGIN_URL}>Add a new Account</Button>
         

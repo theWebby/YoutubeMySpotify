@@ -20,10 +20,10 @@ function DropdownButton (props){
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          {props.items.map(item => {
+          {props.items.map((item, index) => {
             return Object.keys(item).length
-              ? <Dropdown.Item href={item.href}>{item.text}</Dropdown.Item>
-              : <Dropdown.Divider />
+              ? <Dropdown.Item href={item.href} key={index}>{item.text}</Dropdown.Item>
+              : <Dropdown.Divider key={index} />
           })}
         </Dropdown.Menu>
       </Dropdown>

@@ -102,7 +102,7 @@ authRouter.get('/refresh_token', function (req, res) {
     if (!error) {
       var access_token = body.access_token;
 
-      res.header("Access-Control-Allow-Origin", "*");
+      // res.header("Access-Control-Allow-Origin", "*");
       res.send({
         'access_token': access_token
       });

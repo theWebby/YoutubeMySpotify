@@ -7,23 +7,18 @@ export default class SpotifyApi {
         this.refreshToken = refreshToken;
     }
 
-    _makeRequest(url, method, accessToken){
-        request(url, method, accessToken).then(result => {
-            return result;
-        }).catch(async (e) => {
-            console.log('error', e)
-
-            if(e.status === 401){
-                console.log('401')
-
-                this.accessToken = await this.getNewAccessToken(this.refreshToken);
-
-                console.log('new access token', this.accessToken)
-                return request(url, method, accessToken);
+    async _makeRequest(url, method, accessToken){
+        try{
+            return await request(url, method, accessToken);
+        }
+        catch (e) {
+            if (e.status === 401){
+                this.accessToken = (await this.getNewAccessToken(this.refreshToken)).access_token;
+                return request(url, method, this.accessToken);
             }
-            
+
             throw e
-        })
+        }
     }
 
     getCurrentlyPlaying(){
@@ -43,9 +38,6 @@ export default class SpotifyApi {
     }
 
     getNewAccessToken(refreshToken){
-        console.log('refresh token', refreshToken)
-        return request(`http://ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/refresh_token?refresh_token=${this.refreshToken}`).catch(e => {
-            console.log('refresh error', e)
-        })
+        return request(`http://ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/refresh_token?refresh_token=${this.refreshToken}`, 'GET');
     }
 }

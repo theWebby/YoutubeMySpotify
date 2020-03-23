@@ -20,18 +20,16 @@ class YoutubeMySpotify extends React.Component {
     this.startApp();
   }
 
-  startApp = () => {
-    this.getCurrentlyPlaying();
+  startApp = async () => {
+    await this.getCurrentlyPlaying();
 
     const { spotifyPlayer: { currentlyPlaying }} = this.state;
 
-    console.log(currentlyPlaying);
+    console.log('currently Playinh', currentlyPlaying);
   }
 
   getCurrentlyPlaying = async () => {
-    console.log('currentlyPlaying');
     const currentlyPlaying = await this.spotifyApi.getCurrentlyPlaying();
-    console.log('currentlyPlaying', currentlyPlaying);
 
     const { spotifyPlayer } = this.state;
     spotifyPlayer.currentlyPlaying = currentlyPlaying;
