@@ -16,7 +16,7 @@ class App extends React.Component {
     };
   }
 
-  loginCallback = () => {
+  updateUsers = () => {
     this.setState({ currentUser: this.loadCurrentUser() });
     this.setState({ users: this.loadUsers() });
     this.forceUpdate();
@@ -25,7 +25,7 @@ class App extends React.Component {
   loadCurrentUser() {
     return JSON.parse(window.localStorage.getItem("currentUser"));
   }
-  
+
   loadUsers() {
     return JSON.parse(window.localStorage.getItem("users")) || [];
   }
@@ -37,24 +37,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header {...this.state}></Header>
-        yoyoyo
         <Router>
+          <Header {...this.state}></Header>
           <Switch>
-            <Route path="/">
+            <Route path="/YoutubeMySpotify">
+              <YoutubeMySpotify {...this.state.currentUser} />
+            </Route>
+            <Route path="/AccountManager">
               <AccountManagerContainer>
-                <AccountManager loginCallback={() => this.loginCallback()}/>
+                <AccountManager updateUsers={() => this.updateUsers()} />
               </AccountManagerContainer>
             </Route>
-            
-            {/* <Route path="/YoutubeMySpotify">
-              <YoutubeMySpotify {...this.state.currentUser}/>
-            </Route> */}
-            {/* <Route path="/AccountManager">
-              <AccountManagerContainer>
-                <AccountManager />
-              </AccountManagerContainer>
-            </Route> */}
           </Switch>
         </Router>
       </div>

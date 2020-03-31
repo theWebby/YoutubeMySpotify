@@ -21,6 +21,7 @@ class AccountManager extends React.Component {
 
   updateUsers = () => {
     this.setState({users: getUsers()})
+    this.props.updateUsers();
   }
 
   getStoredUsers(){
@@ -70,7 +71,7 @@ class AccountManager extends React.Component {
     setCurrentUser(currentUser);
     setUsers(users)
 
-    this.props.loginCallback()
+    this.props.updateUsers()
     this.props.history.push("/YoutubeMySpotify");
   }
 

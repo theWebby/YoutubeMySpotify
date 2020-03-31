@@ -22,7 +22,7 @@ function DropdownButton (props){
         <Dropdown.Menu>
           {props.items.map((item, index) => {
             return Object.keys(item).length
-              ? <Dropdown.Item href={item.href} key={index}>{item.text}</Dropdown.Item>
+              ? <Dropdown.Item onClick={item.onclick} key={index}>{item.text}</Dropdown.Item>
               : <Dropdown.Divider key={index} />
           })}
         </Dropdown.Menu>

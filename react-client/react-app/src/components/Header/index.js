@@ -27,7 +27,6 @@ class Header extends React.Component {
     items.push({}) //divider
     items.push({
         onclick: () => {
-          alert('hello world')
           this.props.history.push("/AccountManager");
         },
         text: 'Account Manager'
