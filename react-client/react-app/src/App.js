@@ -46,9 +46,9 @@ class App extends React.Component {
               </AccountManagerContainer>
             </Route>
             
-            <Route path="/YoutubeMySpotify">
+            {/* <Route path="/YoutubeMySpotify">
               <YoutubeMySpotify {...this.state.currentUser}/>
-            </Route>
+            </Route> */}
             {/* <Route path="/AccountManager">
               <AccountManagerContainer>
                 <AccountManager />
