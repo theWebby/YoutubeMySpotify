@@ -41,7 +41,7 @@ authRouter.get('/login', function (req, res) {
       scope: scope,
       redirect_uri: Oauth.redirect_uri,
       state: state,
-      show_dialog
+      show_dialog: true
     }));
 });
 
