@@ -40,10 +40,10 @@ class App extends React.Component {
         <Router>
           <Header {...this.state}></Header>
           <Switch>
-            <Route path="/WatchYoutube">
+            <Route path="YoutubeMySpotify/WatchYoutube">
               <YoutubeMySpotify {...this.state.currentUser} />
             </Route>
-            <Route path="/AccountManager">
+            <Route path="YoutubeMySpotify/AccountManager">
               <AccountManagerContainer>
                 <AccountManager updateUsers={() => this.updateUsers()} />
               </AccountManagerContainer>
