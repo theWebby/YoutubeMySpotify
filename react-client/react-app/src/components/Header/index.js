@@ -1,6 +1,7 @@
 import React from "react";
 import { HeaderContainer, HeaderText } from "./styled";
 import DropdownButton from "./DropdownButton"
+import { withRouter } from 'react-router-dom'
 
 class Header extends React.Component {
   constructor(props) {
@@ -25,7 +26,10 @@ class Header extends React.Component {
 
     items.push({}) //divider
     items.push({
-        onclick: () => {this.props.history.push("/AccountManager");},
+        onclick: () => {
+          alert('hello world')
+          this.props.history.push("/AccountManager");
+        },
         text: 'Account Manager'
       }
     )
@@ -43,4 +47,4 @@ class Header extends React.Component {
   };
 }
 
-export default Header;
+export default withRouter(Header);
