@@ -40,7 +40,7 @@ class App extends React.Component {
         <Router>
           <Header {...this.state}></Header>
           <Switch>
-            <Route path="/YoutubeMySpotify">
+            <Route path="/WatchYoutube">
               <YoutubeMySpotify {...this.state.currentUser} />
             </Route>
             <Route path="/AccountManager">
