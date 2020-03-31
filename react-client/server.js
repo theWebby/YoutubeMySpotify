@@ -1,24 +1,32 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const request = require('request')
+const path = require('path')
+const cors = require("cors")
 
 const expressApp = express()
+expressApp.use(cors())
 
 
 expressApp.use(bodyParser.urlencoded({
     extended: true
 }));
 expressApp.use(bodyParser.json())
-expressApp.use(express.static(__dirname + '/public'));
+expressApp.use('/static', express.static(__dirname + '/react-app/build/static'));
+
+expressApp.get('/', function(req, res) {
+ res.sendFile(path.join(__dirname, './react-app/build', 'index.html'));
+});
 
 expressApp.get('/login', function(req, res){
     res.redirect('http://ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/login')
 })
 
-expressApp.post('/getVideoId', function(req, res){
+expressApp.post('/getVideoId', function(req, res){    
     songName = req.body.songName;
     artistName = req.body.artistName;
-
+    
+    res.header("Access-Control-Allow-Origin", "*");
     getVideoId(songName, artistName, (videoId) => {
         res.send({videoId:videoId})
     })
@@ -31,6 +39,8 @@ function getVideoId(songName, artistName, callback){
        
     getTopResult(q, callback)
 }
+
+
 
 function getTopResult(q, callback){
     var url = "https://www.youtube.com/results?search_query=" + q;
@@ -57,4 +67,7 @@ function getTopResult(q, callback){
     );
 }
 
-expressApp.listen(3000)
+
+const PORT = 3000;
+console.log("server listening on", PORT)
+expressApp.listen(PORT)

@@ -1,0 +1,24 @@
+{
+  "name": "tmp-create-react-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start-electron": "electron .",
+    "start-server": "node server.js",
+    "build-react-start-electron": "npm run build-react && npm run start-electron",
+    "build-react": "cd react-app && npm run build && cd ..",
+    "build": "electron-builder ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^8.0.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  }
+}
