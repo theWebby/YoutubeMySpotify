@@ -2,14 +2,15 @@ var { Router } = require('express')
 var querystring = require('querystring');
 var request = require('request'); // "Request" library
 
-const uri = 'http://ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/';
+const URI = 'http://ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/';
+const CLIENT_URL = 'https://thewebby.github.io/YoutubeMySpotify/'
 
 var authRouter = Router()
 var Oauth = {
   client_id: process.env.SPOTIFY_CID,
   client_secret: process.env.SPOTIFY_SECRET,
-  uri,
-  redirect_uri: uri + 'callback'
+  URI,
+  redirect_uri: URI + 'callback'
 }
 
 
@@ -69,7 +70,7 @@ authRouter.get('/callback', function (req, res) {
       var access_token = body.access_token,
         refresh_token = body.refresh_token;
       
-      res.redirect('http://localhost:3000/?' +
+      res.redirect(CLIENT_URL + '?' +
         querystring.stringify({
           access_token: access_token,
           refresh_token: refresh_token
