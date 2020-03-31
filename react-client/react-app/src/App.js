@@ -40,6 +40,12 @@ class App extends React.Component {
         <Header {...this.state}></Header>
         <Router>
           <Switch>
+            <Route path="/">
+              <AccountManagerContainer>
+                <AccountManager loginCallback={() => this.loginCallback()}/>
+              </AccountManagerContainer>
+            </Route>
+            
             <Route path="/YoutubeMySpotify">
               <YoutubeMySpotify {...this.state.currentUser}/>
             </Route>
@@ -48,11 +54,6 @@ class App extends React.Component {
                 <AccountManager />
               </AccountManagerContainer>
             </Route> */}
-            <Route path="/">
-              <AccountManagerContainer>
-                <AccountManager loginCallback={() => this.loginCallback()}/>
-              </AccountManagerContainer>
-            </Route>
           </Switch>
         </Router>
       </div>
