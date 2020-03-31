@@ -5,6 +5,7 @@ import Header from "./components/Header/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AccountManagerContainer } from "./components/AccountManager/styled";
+import { useLocation } from 'react-router-dom'
 
 class App extends React.Component {
   constructor() {
@@ -35,6 +36,9 @@ class App extends React.Component {
   };
 
   render() {
+    let location = useLocation();
+    console.log(location.pathname);
+
     return (
       <div>
         <Router>
