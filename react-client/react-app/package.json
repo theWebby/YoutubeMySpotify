@@ -18,7 +18,8 @@
     "styled-components": "^5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "start node ../server && set PORT=3001 && start react-scripts start",
+    "start-client-server": "node ../server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

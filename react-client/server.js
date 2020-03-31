@@ -2,8 +2,10 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const request = require('request')
 const path = require('path')
+const cors = require("cors")
 
 const expressApp = express()
+expressApp.use(cors())
 
 
 expressApp.use(bodyParser.urlencoded({
@@ -20,10 +22,11 @@ expressApp.get('/login', function(req, res){
     res.redirect('http://ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/login')
 })
 
-expressApp.post('/getVideoId', function(req, res){
+expressApp.post('/getVideoId', function(req, res){    
     songName = req.body.songName;
     artistName = req.body.artistName;
-
+    
+    res.header("Access-Control-Allow-Origin", "*");
     getVideoId(songName, artistName, (videoId) => {
         res.send({videoId:videoId})
     })

@@ -31,9 +31,15 @@ class YoutubePlayer extends React.Component {
       videoId: id,
       events: {
         onReady: this.onPlayerReady,
+        onStateChange: this.onPlayerStateChange
       },
     });
   };
+
+  onPlayerStateChange = (event) => {
+    this.props.onPlayerStateChange(event);
+  }
+
 
   onPlayerReady = event => {
     this.player = event.target;
@@ -41,6 +47,11 @@ class YoutubePlayer extends React.Component {
 
   loadVideoById(id){
     this.player.loadVideoById(id, 0);
+  }
+
+  isPlayerReady(){
+    console.log(this.player.loadVideoById)
+    return (!!this.player.loadVideoById);
   }
 
   render = () => {

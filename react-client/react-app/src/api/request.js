@@ -2,8 +2,11 @@ export default function request(theUrl, method, accessToken, params = null){
     return new Promise((resolve, reject) => {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function() {     
-            if (xmlHttp.readyState === 4 && xmlHttp.status === 200){
+            if (xmlHttp.readyState === 4 && (xmlHttp.status === 200)){
                 resolve(JSON.parse(xmlHttp.responseText));
+            }
+            if (xmlHttp.readyState === 4 && (xmlHttp.status === 204)){
+                resolve();
             }
             if (xmlHttp.readyState === 4){
                 reject(xmlHttp)
