@@ -1,6 +1,7 @@
 {
   "name": "test-app",
   "version": "0.1.0",
+  "homepage": "https://thewebby.github.io/YoutubeMySpotify/",
   "private": true,
   "main": "index.js",
   "homepage": ".",
@@ -22,6 +23,8 @@
     "start-client-server": "node ../server",
     "build": "react-scripts build",
     "postbuild": "rm -rf ../../docs/static/ && mv ./build/* ../../docs/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d ../../docs/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
