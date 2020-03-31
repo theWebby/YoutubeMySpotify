@@ -2,6 +2,8 @@ import React from "react";
 import YoutubePlayer from './YoutubePlayer'
 import SpotifyPlayer from './SpotifyPlayer'
 import { timeout } from './helpers'
+import SpotifyPlaylists from './SpotifyPlaylists'
+import { Container } from './styled'
 
 class YoutubeMySpotify extends React.Component {
   constructor(props) {
@@ -26,10 +28,13 @@ class YoutubeMySpotify extends React.Component {
 
   render = () => {
     return (
-      <div>
+      <Container>
         <YoutubePlayer ref={this.YoutubePlayer} onPlayerStateChange={this.onYoutubePlayerStateChange} id="iAtomM7ybOM" />
+        {/* <YoutubePlayer ref={this.player} id="iAtomM7ybOM" /> */}
         <SpotifyPlayer {...this.props} ref={this.SpotifyPlayer} updateYoutubePlayer={this.updateYoutubePlayer}></SpotifyPlayer>
-      </div>
+        {/* <SpotifyPlayer {...this.props}></SpotifyPlayer> */}
+        <SpotifyPlaylists />
+      </Container>
     );
   };
 }
