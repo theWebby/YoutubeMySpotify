@@ -3,7 +3,7 @@ var querystring = require('querystring');
 var request = require('request'); // "Request" library
 
 const URI = 'http://ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/';
-const CLIENT_URL = 'https://thewebby.github.io/YoutubeMySpotify/'
+const CLIENT_URL = 'https://thewebby.github.io/YoutubeMySpotify/AccountManager/'
 
 var authRouter = Router()
 var Oauth = {
