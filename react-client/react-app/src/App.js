@@ -3,9 +3,8 @@ import YoutubeMySpotify from "./components/YoutubeMySpotify";
 import AccountManager from "./components/AccountManager";
 import Header from "./components/Header/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { AccountManagerContainer } from "./components/AccountManager/styled";
-import { useLocation } from 'react-router-dom'
 
 class App extends React.Component {
   constructor() {
@@ -36,14 +35,12 @@ class App extends React.Component {
   };
 
   render() {
-    let location = useLocation();
-    console.log(location.pathname);
-
     return (
       <div>
         {/* https://www.youtube.com/watch?v=1wDzEjXbblM */}
         <Router>
           <Header {...this.state}></Header>
+          gh-pages
           <Switch>
             <Route path="/YoutubeMySpotify">
               <YoutubeMySpotify {...this.state.currentUser} />

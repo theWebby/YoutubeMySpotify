@@ -4,7 +4,6 @@
   "homepage": "https://thewebby.github.io/YoutubeMySpotify/",
   "private": true,
   "main": "index.js",
-  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
