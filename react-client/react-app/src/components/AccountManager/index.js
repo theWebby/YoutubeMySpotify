@@ -20,34 +20,34 @@ class AccountManager extends React.Component {
   }
 
   updateUsers = () => {
-    this.setState({users: getUsers()})
+    this.setState({ users: getUsers() })
     this.props.updateUsers();
   }
 
-  getStoredUsers(){
+  getStoredUsers() {
     const users = getUsers();
     return users;
   }
 
-  getCurrentUserFromLocation(location){
+  getCurrentUserFromLocation(location) {
     const params = queryString.parse(location.search);
-    const {access_token, refresh_token} = params
+    const { access_token, refresh_token } = params
     return {
       accessToken: access_token,
       refreshToken: refresh_token
     }
   }
 
-  async getUserProfile(){
-    if(!this.spotifyApi.accessToken){
+  async getUserProfile() {
+    if (!this.spotifyApi.accessToken) {
       return
     }
 
     const userProfile = await this.spotifyApi.getProfile();
-    
+
     const { currentUser } = this.state;
     currentUser.profile = userProfile
-    
+
     this.setState({ currentUser });
   }
 
@@ -59,26 +59,41 @@ class AccountManager extends React.Component {
   storeCurrentUser = (stayLoggedIn) => {
     const { currentUser, users } = this.state;
 
-    if(stayLoggedIn){
+    if (stayLoggedIn) {
       const newUserId = currentUser.profile.id
 
-      if (!users.some(user => user.profile.id === newUserId)){
+      if (!users.some(user => user.profile.id === newUserId)) {
         users.push(currentUser);
-        this.setState({users})
+        this.setState({ users })
       }
     }
 
     setCurrentUser(currentUser);
     setUsers(users)
 
+    // this.spotifyLogout();
+
     this.props.updateUsers()
     this.props.history.push("/YoutubeMySpotify");
   }
 
+  spotifyLogout(){
+    const url = 'https://www.spotify.com/logout/'
+    const spotifyLogoutWindow = window.open(url, 'Spotify Logout', 'width=700,height=500,top=40,left=40')
+    setTimeout(() => {
+      spotifyLogoutWindow.close()
+    }, 2000)
+    console.log('logged out now')
+  }
+
+  onAddNewAccount = () => {
+    window.location.href = LOGIN_URL;
+  }
+
   render = () => {
     const { currentUser, users } = this.state;
-    
-    if (currentUser.refreshToken && currentUser.profile){
+
+    if (currentUser.refreshToken && currentUser.profile) {
       return (
         <div>
           <p>Would you like to stay logged in?</p>
@@ -89,15 +104,15 @@ class AccountManager extends React.Component {
         </div>
       )
     }
-    else{
+    else {
       return (
         <div>
 
           <p>{users.length ? 'Your saved accounts...' : 'No Accounts'}</p>
-          {users.map((user, index) => <StoredUser user={user} updateUsers={this.updateUsers} key={index}/>)}
+          {users.map((user, index) => <StoredUser user={user} updateUsers={this.updateUsers} key={index} />)}
           <br />
-          <Button onClick={() => window.location.href = LOGIN_URL}>Add a new Account</Button>
-        
+          <Button onClick={() => this.onAddNewAccount()}>Add a new Account</Button>
+
         </div>
       )
     }

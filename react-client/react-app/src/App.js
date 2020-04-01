@@ -37,6 +37,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';" />
         {/* https://www.youtube.com/watch?v=1wDzEjXbblM */}
         <Router>
           <Header {...this.state}></Header>
