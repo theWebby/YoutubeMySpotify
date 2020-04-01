@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/YoutubeMySpotify/static/css/main.69eda509.chunk.css",
-    "main.js": "/YoutubeMySpotify/static/js/main.a55fc778.chunk.js",
-    "main.js.map": "/YoutubeMySpotify/static/js/main.a55fc778.chunk.js.map",
+    "main.css": "/YoutubeMySpotify/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/YoutubeMySpotify/static/js/main.ba40211c.chunk.js",
+    "main.js.map": "/YoutubeMySpotify/static/js/main.ba40211c.chunk.js.map",
     "runtime-main.js": "/YoutubeMySpotify/static/js/runtime-main.30461448.js",
     "runtime-main.js.map": "/YoutubeMySpotify/static/js/runtime-main.30461448.js.map",
     "static/css/2.47e06e2e.chunk.css": "/YoutubeMySpotify/static/css/2.47e06e2e.chunk.css",
-    "static/js/2.3622f752.chunk.js": "/YoutubeMySpotify/static/js/2.3622f752.chunk.js",
-    "static/js/2.3622f752.chunk.js.map": "/YoutubeMySpotify/static/js/2.3622f752.chunk.js.map",
+    "static/js/2.f2ca79fa.chunk.js": "/YoutubeMySpotify/static/js/2.f2ca79fa.chunk.js",
+    "static/js/2.f2ca79fa.chunk.js.map": "/YoutubeMySpotify/static/js/2.f2ca79fa.chunk.js.map",
     "index.html": "/YoutubeMySpotify/index.html",
-    "precache-manifest.d964303dd967b667672240596c99fe70.js": "/YoutubeMySpotify/precache-manifest.d964303dd967b667672240596c99fe70.js",
+    "precache-manifest.f7e7fb24ca872123b6e67e6a6ed922fe.js": "/YoutubeMySpotify/precache-manifest.f7e7fb24ca872123b6e67e6a6ed922fe.js",
     "service-worker.js": "/YoutubeMySpotify/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/YoutubeMySpotify/static/css/2.47e06e2e.chunk.css.map",
-    "static/css/main.69eda509.chunk.css.map": "/YoutubeMySpotify/static/css/main.69eda509.chunk.css.map",
-    "static/js/2.3622f752.chunk.js.LICENSE.txt": "/YoutubeMySpotify/static/js/2.3622f752.chunk.js.LICENSE.txt"
+    "static/css/main.5ecd60fb.chunk.css.map": "/YoutubeMySpotify/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.f2ca79fa.chunk.js.LICENSE.txt": "/YoutubeMySpotify/static/js/2.f2ca79fa.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.30461448.js",
     "static/css/2.47e06e2e.chunk.css",
-    "static/js/2.3622f752.chunk.js",
-    "static/css/main.69eda509.chunk.css",
-    "static/js/main.a55fc778.chunk.js"
+    "static/js/2.f2ca79fa.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.ba40211c.chunk.js"
   ]
 }
