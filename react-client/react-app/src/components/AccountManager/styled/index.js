@@ -9,3 +9,12 @@ export const AccountManagerContainer = styled.div`
 export const StyledButton = styled(Button)`
     margin: 15px 5px;
 `
+
+export const FacebookNotice = styled.p`
+    position: absolute;
+    bottom: 10px;
+    color: #DDD;
+    margin: 5px;
+    left: 0;
+    right: 0;
+`

@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 import SpotifyApi from '../../api/spotifyApi'
 import AccountSummary from "./AccountSummary"
 import StoredUser from "./StoredUser"
-import { StyledButton as Button } from "./styled"
+import { StyledButton as Button, FacebookNotice } from "./styled"
 import { setCurrentUser, getUsers, setUsers } from './helpers'
 
 class AccountManager extends React.Component {
@@ -101,6 +101,8 @@ class AccountManager extends React.Component {
           <AccountSummary {...currentUser} />
           <Button variant="secondary" onClick={() => this.storeCurrentUser(false)}>No Thanks</Button>
           <Button onClick={() => this.storeCurrentUser(true)}>Yes Please!</Button>
+
+          <FacebookNotice>If you wish to sign in using a different facebook account, you must first <a target="_blank" href="https://www.facebook.com">log out</a> of your current facebook account.</FacebookNotice>
         </div>
       )
     }

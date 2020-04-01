@@ -11,7 +11,7 @@ class SpotifyPlaylists extends React.Component {
     
     return (
       <div className={className}>
-        some playlist
+        some cool playlist 
       </div>
     );
   };
