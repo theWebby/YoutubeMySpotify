@@ -38,6 +38,6 @@ export default class SpotifyApi {
     }
 
     getNewAccessToken(refreshToken){
-        return request(`http://ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/refresh_token?refresh_token=${this.refreshToken}`, 'GET');
+        return request(`https://youtubemyspotify.uk/refresh_token?refresh_token=${this.refreshToken}`, 'GET');
     }
 }

@@ -30,25 +30,23 @@ class SpotifyPlayer extends React.Component {
   }
 
   update = async () => {
-    try{
-      await this.getCurrentlyPlaying();
-      
-      const { spotifyPlayer: { currentlyPlaying }} = this.state;
-      
-      if(currentlyPlaying){
-        await this.updateYoutubePlayer(currentlyPlaying)
-        await this.pauseSpotifyIfNearEnd(currentlyPlaying)
-      }
+    while(true){
+      try{
+        await this.getCurrentlyPlaying();
+        
+        const { spotifyPlayer: { currentlyPlaying }} = this.state;
   
-      await this.skipWhenVideoEnds();
+        if(Object.keys(currentlyPlaying).length !== 0){
+          await this.updateYoutubePlayer(currentlyPlaying)
+          await this.pauseSpotifyIfNearEnd(currentlyPlaying)
+        }
+    
+        await this.skipWhenVideoEnds();
+    
+      }
+      catch (e) { console.log('e', e) }
   
       await timeout(UPDATE_CURRENTLY_PLAYING_INTERVAL_MS);
-    }
-    catch(e){
-      console.log('e', e)
-    }
-    finally{
-      this.update(); 
     }
   }
 
@@ -94,21 +92,54 @@ class SpotifyPlayer extends React.Component {
 
     console.log(songName, artistName);
 
-    const result = await request('http://localhost:3000/getVideoId', 'POST', undefined, {
-      songName,
-      artistName
-    });
+    const result = await request('https://youtubemyspotify.uk/getVideoId', 'POST', '', {songName, artistName})
 
-    console.log(result)
+    // this.getVideoId(songName, artistName, (result) => {
+      console.log(result)
+    // })
 
     return result.videoId;
-}
+  }
+
+  
+  // getVideoId = (songName, artistName, callback) => {
+  //   var q = songName + ' ' + artistName + ' music video';
+  //   console.log('q:', q)
+  //   q = q.replace(/[^a-zA-Z1-9 ]+/g, "")
+       
+  //   this.getTopResult(q, callback)
+  // }
+
+  // getTopResult = async (q, callback) => {
+  //   var url = "https://www.youtube.com/results?search_query=" + q;
+  //   var result = "boPyHl3iptQ"
+    
+  //   console.log('result')
+  //   result = await request(url, 'GET');
+  //   console.log(result)
+
+  //   //     function(error, response, body) {
+  //   //         var txt = body;
+            
+  //   //         var re1='.*';	// Non-greedy match on filler
+  //   //         var re2='((https://i.ytimg.com/vi/)[a-zA-Z0-9-_]+)';	// Alphanum 1
+            
+  //   //         var p = new RegExp(re2,["i"]);
+  //   //         var m = p.exec(txt);
+  //   //         if (m != null)
+  //   //         {
+  //   //             var alphanum1=m[1].replace(m[2], '');
+  //   //             var result = (alphanum1);
+  //   //         }
+            
+  //   //         console.log('result', result)
+  //   //         callback(result)
+  //   //     }
+  //   // );
+  // }
+
 
   isCurrentlyPlayingNew = (currentlyPlaying) => {
-    if (currentlyPlaying === {}) {
-        return false;
-    }
-
     const { lastSongId } = this.state;
     const { item: { id: currentlyPlayingId }} = currentlyPlaying;
 
