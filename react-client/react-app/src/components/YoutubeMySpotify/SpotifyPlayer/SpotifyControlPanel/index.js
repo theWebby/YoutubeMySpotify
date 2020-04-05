@@ -1,6 +1,6 @@
 import React from "react";
 import { RoundedButton, ControlPanelContainer, Info, MarqueeContainer } from './styled'
-import { IoMdPlay, IoIosPause, IoIosSkipForward, IoIosSkipBackward } from 'react-icons/io';
+import { IoMdPlay, IoMdPause, IoIosSkipForward, IoIosSkipBackward } from 'react-icons/io';
 import Marquee from "react-smooth-marquee"
 
 class SpotifyControlPanel extends React.Component {
@@ -23,10 +23,11 @@ class SpotifyControlPanel extends React.Component {
   renderControlPanel() {
     const { currentlyPlaying } = this.props
 
+    //TODO: The play button should say if the video is playing not spotify
     return (
       <div>
         <RoundedButton variant='secondary' onClick={() => this.onPrev()}><IoIosSkipBackward /></RoundedButton>
-        <RoundedButton variant='secondary' onClick={() => this.onPlay()}><IoMdPlay /></RoundedButton>
+    <RoundedButton variant='secondary' onClick={() => this.onPlay()}>{currentlyPlaying.is_playing ? <IoMdPause /> : <IoMdPlay />}</RoundedButton>
         <RoundedButton variant='secondary' onClick={() => this.onSkip()}><IoIosSkipForward /></RoundedButton>
       </div>
     )
