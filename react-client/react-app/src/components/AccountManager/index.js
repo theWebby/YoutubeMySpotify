@@ -1,5 +1,5 @@
 import React from "react";
-import { LOGIN_URL } from '../../constants';
+import { SERVER_URL } from '../../constants';
 import queryString from 'query-string';
 import { withRouter } from 'react-router-dom'
 import SpotifyApi from '../../api/spotifyApi'
@@ -87,7 +87,10 @@ class AccountManager extends React.Component {
   }
 
   onAddNewAccount = () => {
-    window.location.href = LOGIN_URL;
+    const clientUrl = window.location.href.includes('localhost')
+      ? 'http://localhost:3001/%23/AccountManager'
+      : 'https://thewebby.github.io/YoutubeMySpotify/%23/AccountManager'
+    window.location.href = `${SERVER_URL}login?clientUrl=${clientUrl}`; //http://localhost:3001/%23/AccountManager
   }
 
   render = () => {
@@ -113,7 +116,7 @@ class AccountManager extends React.Component {
           <p>{users.length ? 'Your saved accounts...' : 'No Accounts'}</p>
           {users.map((user, index) => <StoredUser user={user} updateUsers={this.updateUsers} key={index} />)}
           <br />
-          <Button onClick={() => this.onAddNewAccount()}>Add a new Account</Button>
+          <Button onClick={() => this.onAddNewAccount()}>Add a new Account pls</Button>
 
         </div>
       )

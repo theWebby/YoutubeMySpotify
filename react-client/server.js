@@ -40,8 +40,6 @@ function getVideoId(songName, artistName, callback){
     getTopResult(q, callback)
 }
 
-
-
 function getTopResult(q, callback){
     var url = "https://www.youtube.com/results?search_query=" + q;
     var result = "boPyHl3iptQ"
