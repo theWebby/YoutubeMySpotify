@@ -32,6 +32,14 @@ export default class SpotifyApi {
     skip(){
         return this._makeRequest('https://api.spotify.com/v1/me/player/next', 'POST', this.accessToken);
     }
+    
+    prev(){
+        return this._makeRequest('https://api.spotify.com/v1/me/player/previous', 'POST', this.accessToken);
+    }
+
+    play(){
+        return this._makeRequest('https://api.spotify.com/v1/me/player/play', 'PUT', this.accessToken);
+    }
 
     getProfile(){
         return this._makeRequest('https://api.spotify.com/v1/me', 'GET', this.accessToken)

@@ -57,7 +57,7 @@ class YoutubePlayer extends React.Component {
   render = () => {
     const { id } = this.props;
     return (
-      <div>
+      <div className={this.props.className}>
         <div id={`youtube-player-${id}`} />
       </div>
     );

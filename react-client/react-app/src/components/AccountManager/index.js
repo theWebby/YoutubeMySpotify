@@ -77,15 +77,6 @@ class AccountManager extends React.Component {
     this.props.history.push("/YoutubeMySpotify");
   }
 
-  spotifyLogout(){
-    const url = 'https://www.spotify.com/logout/'
-    const spotifyLogoutWindow = window.open(url, 'Spotify Logout', 'width=700,height=500,top=40,left=40')
-    setTimeout(() => {
-      spotifyLogoutWindow.close()
-    }, 2000)
-    console.log('logged out now')
-  }
-
   onAddNewAccount = () => {
     const clientUrl = window.location.href.includes('localhost')
       ? 'http://localhost:3001/%23/AccountManager'
@@ -116,7 +107,7 @@ class AccountManager extends React.Component {
           <p>{users.length ? 'Your saved accounts...' : 'No Accounts'}</p>
           {users.map((user, index) => <StoredUser user={user} updateUsers={this.updateUsers} key={index} />)}
           <br />
-          <Button onClick={() => this.onAddNewAccount()}>Add a new Account pls</Button>
+          <Button onClick={() => this.onAddNewAccount()}>Add a new Account</Button>
 
         </div>
       )
