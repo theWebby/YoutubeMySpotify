@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/YoutubeMySpotify/static/css/main.69eda509.chunk.css",
-    "main.js": "/YoutubeMySpotify/static/js/main.e9f411b9.chunk.js",
-    "main.js.map": "/YoutubeMySpotify/static/js/main.e9f411b9.chunk.js.map",
+    "main.js": "/YoutubeMySpotify/static/js/main.5740df05.chunk.js",
+    "main.js.map": "/YoutubeMySpotify/static/js/main.5740df05.chunk.js.map",
     "runtime-main.js": "/YoutubeMySpotify/static/js/runtime-main.30461448.js",
     "runtime-main.js.map": "/YoutubeMySpotify/static/js/runtime-main.30461448.js.map",
     "static/css/2.47e06e2e.chunk.css": "/YoutubeMySpotify/static/css/2.47e06e2e.chunk.css",
     "static/js/2.cc8d57e3.chunk.js": "/YoutubeMySpotify/static/js/2.cc8d57e3.chunk.js",
     "static/js/2.cc8d57e3.chunk.js.map": "/YoutubeMySpotify/static/js/2.cc8d57e3.chunk.js.map",
     "index.html": "/YoutubeMySpotify/index.html",
-    "precache-manifest.a715636cbedd0a6945f56af77d807f72.js": "/YoutubeMySpotify/precache-manifest.a715636cbedd0a6945f56af77d807f72.js",
+    "precache-manifest.32883c3a9c6f85a869c82434c5422049.js": "/YoutubeMySpotify/precache-manifest.32883c3a9c6f85a869c82434c5422049.js",
     "service-worker.js": "/YoutubeMySpotify/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/YoutubeMySpotify/static/css/2.47e06e2e.chunk.css.map",
     "static/css/main.69eda509.chunk.css.map": "/YoutubeMySpotify/static/css/main.69eda509.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.47e06e2e.chunk.css",
     "static/js/2.cc8d57e3.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.e9f411b9.chunk.js"
+    "static/js/main.5740df05.chunk.js"
   ]
 }
