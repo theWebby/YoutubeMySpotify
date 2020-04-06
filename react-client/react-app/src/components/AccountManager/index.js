@@ -1,5 +1,5 @@
 import React from "react";
-import { LOGIN_URL } from '../../constants';
+import { SERVER_URL } from '../../constants';
 import queryString from 'query-string';
 import { withRouter } from 'react-router-dom'
 import SpotifyApi from '../../api/spotifyApi'
@@ -77,17 +77,11 @@ class AccountManager extends React.Component {
     this.props.history.push("/YoutubeMySpotify");
   }
 
-  spotifyLogout(){
-    const url = 'https://www.spotify.com/logout/'
-    const spotifyLogoutWindow = window.open(url, 'Spotify Logout', 'width=700,height=500,top=40,left=40')
-    setTimeout(() => {
-      spotifyLogoutWindow.close()
-    }, 2000)
-    console.log('logged out now')
-  }
-
   onAddNewAccount = () => {
-    window.location.href = LOGIN_URL;
+    const clientUrl = window.location.href.includes('localhost')
+      ? 'http://localhost:3001/%23/AccountManager'
+      : 'https://thewebby.github.io/YoutubeMySpotify/%23/AccountManager'
+    window.location.href = `${SERVER_URL}login?clientUrl=${clientUrl}`; //http://localhost:3001/%23/AccountManager
   }
 
   render = () => {

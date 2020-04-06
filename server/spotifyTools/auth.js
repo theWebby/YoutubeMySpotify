@@ -2,7 +2,7 @@ var { Router } = require('express')
 var querystring = require('querystring');
 var request = require('request'); // "Request" library
 
-const URI = 'http://ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/';
+const URI = 'https://youtubemyspotify.uk/';
 const CLIENT_URL = 'https://thewebby.github.io/YoutubeMySpotify/#/AccountManager/'
 
 var authRouter = Router()
@@ -26,6 +26,7 @@ var generateRandomString = function (length) {
 };
 
 authRouter.get('/login', function (req, res) {
+  var clientUrl = req.query.clientUrl  || null;
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
@@ -39,13 +40,14 @@ authRouter.get('/login', function (req, res) {
       response_type: 'code',
       client_id: Oauth.client_id,
       scope: scope,
-      redirect_uri: Oauth.redirect_uri,
+      redirect_uri: Oauth.redirect_uri + `?clientUrl=${clientUrl.replace('#', '%23')}`,
       state: state
     }));
 });
 
 authRouter.get('/callback', function (req, res) {
   var code = req.query.code || null;
+  var clientUrl = req.query.clientUrl || null;
   var state = req.query.state || null;
   var storedState = req.cookies ? req.cookies[stateKey] : null;
 
@@ -57,7 +59,7 @@ authRouter.get('/callback', function (req, res) {
     url: 'https://accounts.spotify.com/api/token',
     form: {
       code: code,
-      redirect_uri: Oauth.redirect_uri, //fill this in________?
+      redirect_uri: Oauth.redirect_uri + `?clientUrl=${clientUrl.replace('#', '%23')}`,
       grant_type: 'authorization_code'
     },
     headers: { 'Authorization': 'Basic ' + authHeader },
@@ -69,17 +71,18 @@ authRouter.get('/callback', function (req, res) {
 
       var access_token = body.access_token,
         refresh_token = body.refresh_token;
-      
-      res.redirect(CLIENT_URL + '?' +
+
+      res.redirect((clientUrl || CLIENT_URL) + '?&' +
         querystring.stringify({
           access_token: access_token,
           refresh_token: refresh_token
-        }));
+        })
+      );
     } else {
       res.redirect('/#' +
         querystring.stringify({
           error: 'invalid_token',
-          status: response.statusCodem,
+          status: response.statusCode,
           errorMessage: error
         }));
     }
@@ -100,7 +103,6 @@ authRouter.get('/refresh_token', function (req, res) {
   };
 
   request.post(authOptions, function (error, response, body) {
-    console.log(response)
     //if (!error) {
       var access_token = body.access_token;
 
@@ -111,5 +113,47 @@ authRouter.get('/refresh_token', function (req, res) {
     //}
   });
 });
+
+//lazy c'mon
+authRouter.post('/getVideoId', function(req, res){    
+  songName = req.body.songName;
+  artistName = req.body.artistName;
+
+  res.header("Access-Control-Allow-Origin", "*");
+  getVideoId(songName, artistName, (videoId) => {
+    res.send({videoId:videoId})
+  })
+});
+
+function getVideoId(songName, artistName, callback){
+  var q = songName + ' ' + artistName + ' music video';
+  q = q.replace(/[^a-zA-Z1-9 ]+/g, "")
+     
+  getTopResult(q, callback)
+}
+
+function getTopResult(q, callback){
+  var url = "https://www.youtube.com/results?search_query=" + q;
+  var result = "boPyHl3iptQ"
+  request(
+      { uri:  url},
+      function(error, response, body) {
+          var txt = body;
+          
+          var re1='.*';	// Non-greedy match on filler
+          var re2='((https://i.ytimg.com/vi/)[a-zA-Z0-9-_]+)';	// Alphanum 1
+          
+          var p = new RegExp(re2,["i"]);
+          var m = p.exec(txt);
+          if (m != null)
+          {
+              var alphanum1=m[1].replace(m[2], '');
+              var result = (alphanum1);
+          }
+
+          callback(result)
+      }
+  );
+}
 
 module.exports = { authRouter, Oauth };

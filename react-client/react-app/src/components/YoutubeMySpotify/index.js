@@ -1,5 +1,5 @@
 import React from "react";
-import YoutubePlayer from './YoutubePlayer'
+import { StyledYoutubePlayer as YoutubePlayer } from './styled'
 import SpotifyPlayer from './SpotifyPlayer'
 import { timeout } from './helpers'
 import SpotifyPlaylists from './SpotifyPlaylists'
@@ -29,10 +29,11 @@ class YoutubeMySpotify extends React.Component {
   render = () => {
     return (
       <Container>
-        <YoutubePlayer ref={this.YoutubePlayer} onPlayerStateChange={this.onYoutubePlayerStateChange} id="iAtomM7ybOM" />
+        <YoutubePlayer className='someclassname' ref={this.YoutubePlayer} onPlayerStateChange={this.onYoutubePlayerStateChange} id="iAtomM7ybOM" />
         {/* <YoutubePlayer ref={this.player} id="iAtomM7ybOM" /> */}
         <SpotifyPlayer {...this.props} ref={this.SpotifyPlayer} updateYoutubePlayer={this.updateYoutubePlayer}></SpotifyPlayer>
         {/* <SpotifyPlayer {...this.props}></SpotifyPlayer> */}
+        <hr style={{width: '95%'}}/>
         <SpotifyPlaylists />
       </Container>
     );

@@ -33,11 +33,24 @@ export default class SpotifyApi {
         return this._makeRequest('https://api.spotify.com/v1/me/player/next', 'POST', this.accessToken);
     }
 
+    
+    prev(){
+        return this._makeRequest('https://api.spotify.com/v1/me/player/previous', 'POST', this.accessToken);
+    }
+
+    seek(ms){
+        return this._makeRequest(`https://api.spotify.com/v1/me/player/seek?position_ms=${ms}`, 'PUT', this.accessToken);
+    }
+
+    play(){
+        return this._makeRequest('https://api.spotify.com/v1/me/player/play', 'PUT', this.accessToken);
+    }
+
     getProfile(){
         return this._makeRequest('https://api.spotify.com/v1/me', 'GET', this.accessToken)
     }
 
     getNewAccessToken(refreshToken){
-        return request(`http://ec2-52-56-132-53.eu-west-2.compute.amazonaws.com:3000/refresh_token?refresh_token=${this.refreshToken}`, 'GET');
+        return request(`https://youtubemyspotify.uk/refresh_token?refresh_token=${this.refreshToken}`, 'GET');
     }
 }
