@@ -12,9 +12,8 @@ export const PhoneWithSignal = styled.img`
 
 export const LogoOnScreen = styled.img`
   max-height: 400px; 
-  margin: 50px 0;
-  max-width: 40%;
-  
+  margin: 25px 0;
+  max-width: 40%;  
 `
 
 export const Container = styled.div`
@@ -22,13 +21,13 @@ export const Container = styled.div`
 `
 
 export const Heading = styled.h1`
-  margin-top: 4%;
+  margin-top: 2%;
 `
 
 export const Text = styled.p`
-  margin: 20px;
+  margin: 15px;
 `
 
 export const Button = styled(BootstapButton)`
-  margin: 10px;
+  margin: 5px;
 `
