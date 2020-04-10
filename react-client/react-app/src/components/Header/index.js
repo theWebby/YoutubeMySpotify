@@ -24,7 +24,10 @@ class Header extends React.Component {
       } 
     })
 
-    items.push({}) //divider
+    if(this.props.users.length){
+      items.push({}) //divider
+    }
+    
     items.push({
         onclick: () => {
           this.props.history.push("/AccountManager");
@@ -40,7 +43,7 @@ class Header extends React.Component {
     return (
       <HeaderContainer>
         <HeaderText onClick={() => window.location = '/YoutubeMySpotify'}>Youtube My Spotify</HeaderText>
-        <DropdownButton variant={'btn-link'} {...this.generateDropDownProps()}></DropdownButton>
+        <DropdownButton variant={'primary'} {...this.generateDropDownProps()}></DropdownButton>
       </HeaderContainer>
     );
   };
