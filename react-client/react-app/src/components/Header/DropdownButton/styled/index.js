@@ -6,3 +6,11 @@ export const StyledDropdown = styled(Dropdown)`
     float: right;
     margin: -8px;
 `
+
+export const StyledDropDownItem = styled(Dropdown.Item)`
+    color: #ccc;
+    &&:hover{
+        background-color: #4b545e;
+        color: #ccc;
+    }
+`

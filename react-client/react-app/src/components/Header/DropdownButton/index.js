@@ -1,36 +1,62 @@
 import React from "react";
-import { StyledDropdown as Dropdown } from "./styled";
+import { StyledDropdown as Dropdown, StyledDropDownItem } from "./styled";
 
 
-/*
-props: {
-    variant: 'success',
-    text: 'Dropdown Button',
-    items: [
-        href: './', --want to do on click here or something
-        text: 'hello world',
-    ]
+const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+  <a
+    href=""
+    ref={ref}
+    style = {{color: '#ccc'}}
+    class="btn btn-link"
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+  >
+    {children}
+    <span class="ml-1">
+      &#x25bc;
+    </span>
+  </a>
+));
+
+function renderMenuItem(item, index){
+  if(Object.keys(item).length){
+    return <StyledDropDownItem onClick={item.onclick} key={index}>{item.text}</StyledDropDownItem>
+  } else{
+    return <Dropdown.Divider key={index} />
+  }
 }
-*/
-function DropdownButton (props){
-    console.log(props)
 
+const CustomMenu = React.forwardRef(
+  ({ children, style, className, 'aria-labelledby': labeledBy }, ref) => {    
+    return (
+      <div
+        ref={ref}
+        style={style}
+        className={className}
+        aria-labelledby={labeledBy}
+      >
+        <ul className="list-unstyled mb-0 ">
+          {children}
+        </ul>
+      </div>
+    );
+  },
+);
+
+function DropdownButton (props){
     return (
       <Dropdown alignRight>
-        <Dropdown.Toggle id="dropdown-basic" variant={props.variant}>
+        <Dropdown.Toggle as={CustomToggle} id="dropdown-basic" variant={props.variant}>
           {props.text}
         </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          {props.items.map((item, index) => {
-            return Object.keys(item).length
-              ? <Dropdown.Item onClick={item.onclick} key={index}>{item.text}</Dropdown.Item>
-              : <Dropdown.Divider key={index} />
-          })}
+        <Dropdown.Menu className='bg-dark'>
+          {props.items.map((item, index) => { return renderMenuItem(item, index) })}
         </Dropdown.Menu>
       </Dropdown>
     );
-
 }
 
 export default DropdownButton;
