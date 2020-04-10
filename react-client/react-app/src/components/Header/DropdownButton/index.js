@@ -13,9 +13,11 @@ props: {
 }
 */
 function DropdownButton (props){
+    console.log(props)
+
     return (
       <Dropdown alignRight>
-        <Dropdown.Toggle variant={props.variant} id="dropdown-basic">
+        <Dropdown.Toggle id="dropdown-basic" variant={props.variant}>
           {props.text}
         </Dropdown.Toggle>
 

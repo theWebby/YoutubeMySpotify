@@ -39,8 +39,8 @@ class Header extends React.Component {
   render = () => {
     return (
       <HeaderContainer>
-        <HeaderText onClick={() => window.location = '/'}>Youtube My Spotify</HeaderText>
-        <DropdownButton {...this.generateDropDownProps()}></DropdownButton>
+        <HeaderText onClick={() => window.location = '/YoutubeMySpotify'}>Youtube My Spotify</HeaderText>
+        <DropdownButton variant={'btn-link'} {...this.generateDropDownProps()}></DropdownButton>
       </HeaderContainer>
     );
   };

@@ -20,7 +20,7 @@
     "styled-components": "^5.0.1"
   },
   "scripts": {
-    "start": "start node ../server && set PORT=3001 && start react-scripts start",
+    "start": "set PORT=3001 && start react-scripts start",
     "start-client-server": "node ../server",
     "start-react-scripts": "react-scripts start",
     "build": "react-scripts build",

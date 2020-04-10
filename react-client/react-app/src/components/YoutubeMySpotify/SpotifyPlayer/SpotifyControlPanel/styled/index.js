@@ -24,5 +24,6 @@ export const MarqueeContainer = styled.div`
     display: inline-block;
     width: 200px;
     overflow: hidden;
+    white-space: nowrap;
 `
 

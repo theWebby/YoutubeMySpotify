@@ -1,6 +1,7 @@
 import React from "react";
 import YoutubeMySpotify from "./components/YoutubeMySpotify";
 import AccountManager from "./components/AccountManager";
+import WelcomePage from "./components/WelcomePage"
 import Header from "./components/Header/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
@@ -49,6 +50,9 @@ class App extends React.Component {
               <AccountManagerContainer>
                 <AccountManager updateUsers={() => this.updateUsers()} />
               </AccountManagerContainer>
+            </Route>
+            <Route path="/">
+              <WelcomePage currentUser={this.state.currentUser} users={this.state.users} />
             </Route>
           </Switch>
         </Router>
