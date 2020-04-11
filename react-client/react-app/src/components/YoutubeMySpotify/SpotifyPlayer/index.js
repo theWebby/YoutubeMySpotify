@@ -131,16 +131,12 @@ class SpotifyPlayer extends React.Component {
   }
 
   async getNextTopTrack(){
-    console.log(this.state.topTracks)
     if (!this.state.topTracks){
       return;
     }
 
     let [nextTopTrack, ...restTopTracks] = this.state.topTracks;
-    console.log(restTopTracks.length)
     if(!restTopTracks.length){
-      console.log('reseting')
-      console.log(nextTopTrack)
       restTopTracks = this.state.storedTopTracks; //start again
     }
     
