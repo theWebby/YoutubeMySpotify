@@ -14,7 +14,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     }}
   >
     {children}
-    <span class="ml-1">
+    <span class="ml-1 text-muted" style={{ fontSize: '10px' }}>
       &#x25bc;
     </span>
   </a>
@@ -49,7 +49,7 @@ function DropdownButton (props){
     return (
       <Dropdown alignRight>
         <Dropdown.Toggle as={CustomToggle} id="dropdown-basic" variant={props.variant}>
-          {props.text}
+          {props.children}
         </Dropdown.Toggle>
 
         <Dropdown.Menu className='bg-dark'>

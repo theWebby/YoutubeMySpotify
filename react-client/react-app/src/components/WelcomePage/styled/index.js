@@ -1,20 +1,20 @@
 import styled from 'styled-components'
-import { default as BootstapButton} from 'react-bootstrap/Button'
+import { default as BootstapButton } from 'react-bootstrap/Button'
 
 export const PhoneWithSignal = styled.img`
   position: fixed;
   bottom: -5%;
-  left: -5%;
-  max-height: 50%;
-  max-width: 30%;
+  right: -2%;
+  max-height: 35%;
+  max-width: 21%;
+  transform: rotateY(180deg)
 `
 
 
 export const LogoOnScreen = styled.img`
-  max-height: 400px; 
-  margin: 50px 0;
-  max-width: 40%;
-  
+  //max-height: 600px; 
+//  margin: 50px 0;
+  //max-width: 40%;
 `
 
 export const Container = styled.div`
@@ -22,11 +22,9 @@ export const Container = styled.div`
 `
 
 export const Heading = styled.h1`
-  margin-top: 4%;
-`
-
-export const Text = styled.p`
-  margin: 20px;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  font-size: 80px  
 `
 
 export const Button = styled(BootstapButton)`
