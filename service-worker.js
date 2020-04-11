@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/YoutubeMySpotify/precache-manifest.c211a6ce2204d8d67bd139b444435aef.js"
+  "/YoutubeMySpotify/precache-manifest.f76f384626d68fa7c1b64c24ec8371c9.js"
 );
 
 self.addEventListener('message', (event) => {

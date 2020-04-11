@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "66f207d771c0533103992773cf4cef34",
+    "revision": "2dc938238a3b5fd9600e79448d1ab433",
     "url": "/YoutubeMySpotify/index.html"
   },
   {
-    "revision": "240e7d899bd56a52b573",
+    "revision": "c2ddea80b22c896bcb1c",
     "url": "/YoutubeMySpotify/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "a15745130a7b122e421f",
+    "revision": "b014f2e31ef9f29e3d67",
     "url": "/YoutubeMySpotify/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "240e7d899bd56a52b573",
-    "url": "/YoutubeMySpotify/static/js/2.d2fe69c1.chunk.js"
+    "revision": "c2ddea80b22c896bcb1c",
+    "url": "/YoutubeMySpotify/static/js/2.eec84e1e.chunk.js"
   },
   {
     "revision": "299cba5f6c747cbc295097594263041b",
-    "url": "/YoutubeMySpotify/static/js/2.d2fe69c1.chunk.js.LICENSE.txt"
+    "url": "/YoutubeMySpotify/static/js/2.eec84e1e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a15745130a7b122e421f",
-    "url": "/YoutubeMySpotify/static/js/main.d0b46a64.chunk.js"
+    "revision": "b014f2e31ef9f29e3d67",
+    "url": "/YoutubeMySpotify/static/js/main.4572c484.chunk.js"
   },
   {
     "revision": "8b6718e1b15d4b69724c",
