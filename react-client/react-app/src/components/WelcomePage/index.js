@@ -2,10 +2,12 @@ import React from "react";
 import { withRouter } from 'react-router-dom'
 import phoneWithSignal from '../../images/SpotifyOnPhoneSignal.png'
 import logoOnScreen from '../../images/LogoOnScreen.png'
-import { PhoneWithSignal, LogoOnScreen, Heading, Button } from './styled'
 import { Container, Row, Col } from 'react-bootstrap'
 import FadeInText from './FadeInText/index'
 import {IoIosLogIn} from 'react-icons/io'
+import { PhoneWithSignal, LogoOnScreen, Heading,  Button } from './styled'
+import { addNewAccountRedirect } from "../AccountManager/helpers";
+
 
 class WelcomePage extends React.Component {
   constructor(props) {
@@ -33,12 +35,12 @@ class WelcomePage extends React.Component {
     if (this.props.currentUser) {
       return this.props.history.push("/YoutubeMySpotify");
     }
+    
+    if(this.props.users.length){
+      return this.props.history.push("/AccountManager");
+    }
 
-    // if(this.props.users.length){
-    return this.props.history.push("/AccountManager");
-    // }
-
-    // this.props.history.push("/");
+    addNewAccountRedirect();
   }
 
   render = () => {

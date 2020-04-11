@@ -28,5 +28,5 @@ export const Heading = styled.h1`
 `
 
 export const Button = styled(BootstapButton)`
-  margin: 10px;
+  margin: 5px;
 `

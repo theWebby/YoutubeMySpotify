@@ -41,6 +41,9 @@ class SpotifyPlayer extends React.Component {
           await this.updateYoutubePlayer(currentlyPlaying)
           await this.pauseSpotifyIfNearEnd(currentlyPlaying)
         }
+        else{
+          console.log(await this.spotifyApi.getTopTracks())
+        }
     
         await this.skipWhenVideoEnds();
     
