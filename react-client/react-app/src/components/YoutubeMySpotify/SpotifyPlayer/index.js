@@ -17,7 +17,9 @@ class SpotifyPlayer extends React.Component {
           
         }
       },
-      lastSong: ''
+      lastSong: '',
+      topTracks: [],
+      playingFrom: '',
     }
 
     this.youtubePlayerState = -1;
@@ -25,8 +27,10 @@ class SpotifyPlayer extends React.Component {
     const { accessToken, refreshToken } = props
     this.spotifyApi = new SpotifyApi(accessToken, refreshToken)
   }
-  
+
   async componentDidMount() {
+    await this.getTopTracks();
+
     this.update();
   }
 
@@ -41,9 +45,7 @@ class SpotifyPlayer extends React.Component {
           await this.updateYoutubePlayer(currentlyPlaying)
           await this.pauseSpotifyIfNearEnd(currentlyPlaying)
         }
-        else{
-          console.log(await this.spotifyApi.getTopTracks())
-        }
+        
     
         await this.skipWhenVideoEnds();
     
@@ -52,6 +54,10 @@ class SpotifyPlayer extends React.Component {
   
       await timeout(UPDATE_CURRENTLY_PLAYING_INTERVAL_MS);
     }
+  }
+
+  async getTopTracks(){
+    this.setState({topTracks: (await this.spotifyApi.getTopTracks()).items})
   }
 
   skipWhenVideoEnds = async () => {
@@ -102,22 +108,58 @@ class SpotifyPlayer extends React.Component {
     const { lastSongId } = this.state;
     const { item: { id: currentlyPlayingId }} = currentlyPlaying;
 
-    if (lastSongId != currentlyPlayingId) {
+    if (lastSongId !== currentlyPlayingId) {
         this.setState({lastSongId: currentlyPlayingId})
         return true;
     }
 
     return false;
-}
+  }
+
+  async getNextTopTrack(){
+    let [nextTopTrack, ...restTopTracks] = this.state.topTracks;
+    
+    if(!restTopTracks.length){
+      await this.getTopTracks();
+    }
+    
+    this.setState({topTracks: restTopTracks})
+    return nextTopTrack;
+  }
+
+  updatePlayingContext = (context) => {
+    this.props.onPlayingContextChange(context)
+    this.setState({playingContext: context})
+  }
+
+  async getPlayingContextFromCurrentlyPlaying(currentlyPlaying){
+    const context = currentlyPlaying.context
+      ? (await this.spotifyApi.get(currentlyPlaying.context.href)).name
+      : 'Search Results'
+
+    this.updatePlayingContext(context);
+  }
 
   getCurrentlyPlaying = async () => {
     const { spotifyPlayer } = this.state;  
-    const currentlyPlaying = (await this.spotifyApi.getCurrentlyPlaying()) || {};
+    let currentlyPlaying = (await this.spotifyApi.getCurrentlyPlaying()) || {};
     
-    spotifyPlayer.currentlyPlaying = currentlyPlaying;
-    this.setState({
-      spotifyPlayer
-    })
+    if (!Object.keys(currentlyPlaying).length){
+      if(this.youtubePlayerState === 0 || this.youtubePlayerState === -1){
+        currentlyPlaying.item = await this.getNextTopTrack();
+        this.updatePlayingContext('Your Top 50 Tracks')
+      }
+    }
+    else{
+      await this.getPlayingContextFromCurrentlyPlaying(currentlyPlaying);
+    }
+
+    if(Object.keys(currentlyPlaying).length){
+      spotifyPlayer.currentlyPlaying = currentlyPlaying;
+      this.setState({
+        spotifyPlayer
+      })
+    }
   }
 
   render = () => {
