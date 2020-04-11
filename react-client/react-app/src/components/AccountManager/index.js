@@ -1,12 +1,11 @@
 import React from "react";
-import { SERVER_URL } from '../../constants';
 import queryString from 'query-string';
 import { withRouter } from 'react-router-dom'
 import SpotifyApi from '../../api/spotifyApi'
 import AccountSummary from "./AccountSummary"
 import StoredUser from "./StoredUser"
 import { StyledButton as Button, FacebookNotice } from "./styled"
-import { setCurrentUser, getUsers, setUsers } from './helpers'
+import { setCurrentUser, getUsers, setUsers, addNewAccountRedirect } from './helpers'
 
 class AccountManager extends React.Component {
   constructor(props) {
@@ -77,13 +76,6 @@ class AccountManager extends React.Component {
     this.props.history.push("/YoutubeMySpotify");
   }
 
-  onAddNewAccount = () => {
-    const clientUrl = window.location.href.includes('localhost')
-      ? 'http://localhost:3001/%23/AccountManager'
-      : 'https://thewebby.github.io/YoutubeMySpotify/%23/AccountManager'
-    window.location.href = `${SERVER_URL}login?clientUrl=${clientUrl}`; //http://localhost:3001/%23/AccountManager
-  }
-
   render = () => {
     const { currentUser, users } = this.state;
 
@@ -107,7 +99,7 @@ class AccountManager extends React.Component {
           <p>{users.length ? 'Your saved accounts...' : 'No Accounts'}</p>
           {users.map((user, index) => <StoredUser user={user} updateUsers={this.updateUsers} key={index} />)}
           <br />
-          <Button onClick={() => this.onAddNewAccount()}>Add a new Account</Button>
+          <Button onClick={() => addNewAccountRedirect()}>Add a new Account</Button>
 
         </div>
       )

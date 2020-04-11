@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import phoneWithSignal from '../../images/SpotifyOnPhoneSignal.png'
 import logoOnScreen from '../../images/LogoOnScreen.png'
 import { Container, PhoneWithSignal, LogoOnScreen, Heading, Text, Button } from './styled'
+import { addNewAccountRedirect } from "../AccountManager/helpers";
 
 
 class WelcomePage extends React.Component {
@@ -16,11 +17,11 @@ class WelcomePage extends React.Component {
       return this.props.history.push("/YoutubeMySpotify");
     }
     
-    // if(this.props.users.length){
+    if(this.props.users.length){
       return this.props.history.push("/AccountManager");
-    // }
+    }
 
-    // this.props.history.push("/");
+    addNewAccountRedirect();
   }
 
   render = () => {
