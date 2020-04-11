@@ -66,7 +66,12 @@ class SpotifyPlayer extends React.Component {
   }
 
   async getTopTracks(){
-    this.setState({topTracks: (await this.spotifyApi.getTopTracks()).items})
+    const topTracks = (await this.spotifyApi.getTopTracks()).items
+    
+    this.setState({
+      storedTopTracks: topTracks,
+      topTracks: topTracks 
+    })
   }
 
   skipWhenVideoEnds = async () => {
@@ -126,10 +131,17 @@ class SpotifyPlayer extends React.Component {
   }
 
   async getNextTopTrack(){
+    console.log(this.state.topTracks)
+    if (!this.state.topTracks){
+      return;
+    }
+
     let [nextTopTrack, ...restTopTracks] = this.state.topTracks;
-    
+    console.log(restTopTracks.length)
     if(!restTopTracks.length){
-      await this.getTopTracks();
+      console.log('reseting')
+      console.log(nextTopTrack)
+      restTopTracks = this.state.storedTopTracks; //start again
     }
     
     this.setState({topTracks: restTopTracks})
