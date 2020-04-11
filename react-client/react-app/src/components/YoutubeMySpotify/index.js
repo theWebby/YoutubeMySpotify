@@ -36,7 +36,7 @@ class YoutubeMySpotify extends React.Component {
     return (
       <Container>
         <PlayingContext ref={this.PlayingContext}></PlayingContext>
-        <YoutubePlayer className='someclassname' ref={this.YoutubePlayer} onPlayerStateChange={this.onYoutubePlayerStateChange} id="iAtomM7ybOM" />
+        <YoutubePlayer className='someclassname' ref={this.YoutubePlayer} onPlayerStateChange={this.onYoutubePlayerStateChange} id="" />
         {/* <YoutubePlayer ref={this.player} id="iAtomM7ybOM" /> */}
         <SpotifyPlayer {...this.props} ref={this.SpotifyPlayer} updateYoutubePlayer={this.updateYoutubePlayer} onPlayingContextChange={this.onPlayingContextChange}></SpotifyPlayer>
         {/* <SpotifyPlayer {...this.props}></SpotifyPlayer> */}
