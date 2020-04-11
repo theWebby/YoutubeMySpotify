@@ -3,6 +3,8 @@ import { HeaderContainer, HeaderText } from "./styled";
 import DropdownButton from "./DropdownButton"
 import { withRouter } from 'react-router-dom'
 import { IoIosPerson } from 'react-icons/io'
+import { setCurrentUser, loadCurrentUser } from '../AccountManager/helpers'
+
 class Header extends React.Component {
   constructor(props) {
     super();
@@ -17,10 +19,16 @@ class Header extends React.Component {
   }
 
   generateItemsArrayFromUsers() {
+    const currentUser = loadCurrentUser();
+
     const items = this.props.users.map(user => {
       return {
-        href: '/',
-        text: user.profile.display_name
+        onclick: () => {
+          setCurrentUser(user);
+          this.props.history.push("/YoutubeMySpotify");
+        },
+        text: user.profile.display_name,
+        isCurrentUser: user.profile.id === currentUser.profile.id,
       }
     })
 
@@ -37,6 +45,10 @@ class Header extends React.Component {
     )
 
     return items;
+  }
+
+  isCurrentUser(user){
+
   }
 
   render = () => {

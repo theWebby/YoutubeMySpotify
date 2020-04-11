@@ -22,7 +22,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
 
 function renderMenuItem(item, index){
   if(Object.keys(item).length){
-    return <StyledDropDownItem onClick={item.onclick} key={index}>{item.text}</StyledDropDownItem>
+    return <StyledDropDownItem onClick={item.onclick} key={index}>{item.isCurrentUser ? <span>&#127925;</span> : null} {item.text}</StyledDropDownItem>
   } else{
     return <Dropdown.Divider key={index} />
   }

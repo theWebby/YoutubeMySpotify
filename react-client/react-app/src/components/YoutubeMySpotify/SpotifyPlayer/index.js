@@ -23,6 +23,7 @@ class SpotifyPlayer extends React.Component {
     }
 
     this.youtubePlayerState = -1;
+    this.mounted = false;
 
     const { accessToken, refreshToken } = props
     this.spotifyApi = new SpotifyApi(accessToken, refreshToken)
@@ -30,12 +31,20 @@ class SpotifyPlayer extends React.Component {
 
   async componentDidMount() {
     await this.getTopTracks();
+    this.mounted = true;
 
     this.update();
   }
 
+
+  componentWillUnmount(){
+    this.mounted = false;
+    console.log('unmounting')
+  }
+
+
   update = async () => {
-    while(true){
+    while(this.mounted){
       try{
         await this.getCurrentlyPlaying();
         
