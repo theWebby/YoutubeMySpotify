@@ -19,7 +19,7 @@ class SpotifyPlayer extends React.Component {
       },
       lastSong: '',
       topTracks: [],
-      playingFrom: '',
+      playingContext: '',
     }
 
     this.youtubePlayerState = -1;
@@ -149,32 +149,37 @@ class SpotifyPlayer extends React.Component {
     this.updatePlayingContext(context);
   }
 
+  playNextFromTop50 = async () => {
+    const { spotifyPlayer } = this.state;  
+    spotifyPlayer.currentlyPlaying.item = await this.getNextTopTrack();
+    this.setState({
+      spotifyPlayer
+    })
+    this.updatePlayingContext('Your Top 50 Tracks');
+  }
+
   getCurrentlyPlaying = async () => {
     const { spotifyPlayer } = this.state;  
     let currentlyPlaying = (await this.spotifyApi.getCurrentlyPlaying()) || {};
     
     if (!Object.keys(currentlyPlaying).length){
       if(this.youtubePlayerState === 0 || this.youtubePlayerState === -1){
-        currentlyPlaying.item = await this.getNextTopTrack();
-        this.updatePlayingContext('Your Top 50 Tracks')
+        this.playNextFromTop50();
       }
     }
     else{
-      await this.getPlayingContextFromCurrentlyPlaying(currentlyPlaying);
-    }
-
-    if(Object.keys(currentlyPlaying).length){
       spotifyPlayer.currentlyPlaying = currentlyPlaying;
       this.setState({
         spotifyPlayer
       })
+      await this.getPlayingContextFromCurrentlyPlaying(currentlyPlaying);
     }
   }
 
   render = () => {
     return (
       <div>
-        <SpotifyControlPanel {...this.state.spotifyPlayer} spotifyApi={this.spotifyApi}></SpotifyControlPanel>
+        <SpotifyControlPanel {...this.state.spotifyPlayer} spotifyApi={this.spotifyApi} playingContext={this.state.playingContext} playNextFromTop50={this.playNextFromTop50}></SpotifyControlPanel>
       </div>
     );
   };
