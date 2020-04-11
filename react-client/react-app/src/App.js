@@ -6,30 +6,23 @@ import Header from "./components/Header/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { AccountManagerContainer } from "./components/AccountManager/styled";
+import { loadCurrentUser, loadUsers } from "./components/AccountManager/helpers"
 
 class App extends React.Component {
   constructor() {
     super();
     this.player = React.createRef();
     this.state = {
-      currentUser: this.loadCurrentUser(),
-      users: this.loadUsers()
+      currentUser: loadCurrentUser(),
+      users: loadUsers()
     };
   }
 
   updateUsers = () => {
-    this.setState({ currentUser: this.loadCurrentUser() });
-    this.setState({ users: this.loadUsers() });
+    this.setState({ currentUser: loadCurrentUser() });
+    this.setState({ users: loadUsers() });
     this.forceUpdate();
   };
-
-  loadCurrentUser() {
-    return JSON.parse(window.localStorage.getItem("currentUser"));
-  }
-
-  loadUsers() {
-    return JSON.parse(window.localStorage.getItem("users")) || [];
-  }
 
   loadVideoById = id => {
     this.player.current.loadVideoById(id);

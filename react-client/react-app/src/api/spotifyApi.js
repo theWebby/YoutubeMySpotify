@@ -50,6 +50,10 @@ export default class SpotifyApi {
         return this._makeRequest('https://api.spotify.com/v1/me', 'GET', this.accessToken)
     }
 
+    getTopTracks(){
+        return this._makeRequest('https://api.spotify.com/v1/me/top/tracks', 'GET', this.accessToken)
+    }
+
     getNewAccessToken(refreshToken){
         return request(`https://youtubemyspotify.uk/refresh_token?refresh_token=${this.refreshToken}`, 'GET');
     }

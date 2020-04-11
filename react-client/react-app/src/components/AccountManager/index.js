@@ -5,7 +5,7 @@ import SpotifyApi from '../../api/spotifyApi'
 import AccountSummary from "./AccountSummary"
 import StoredUser from "./StoredUser"
 import { StyledButton as Button, FacebookNotice } from "./styled"
-import { setCurrentUser, getUsers, setUsers, addNewAccountRedirect } from './helpers'
+import { setCurrentUser, loadUsers, setUsers, addNewAccountRedirect } from './helpers'
 
 class AccountManager extends React.Component {
   constructor(props) {
@@ -19,12 +19,12 @@ class AccountManager extends React.Component {
   }
 
   updateUsers = () => {
-    this.setState({ users: getUsers() })
+    this.setState({ users: loadUsers() })
     this.props.updateUsers();
   }
 
   getStoredUsers() {
-    const users = getUsers();
+    const users = loadUsers();
     return users;
   }
 
