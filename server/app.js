@@ -6,6 +6,8 @@ var https = require('https')
 var http = require('http');
 var spotifyTools = require("./spotifyTools")
 
+console.log(process.cwd())
+
 var httpApp = express();
 httpApp.use(bodyParser.urlencoded({ extended: false }));
 httpApp.use(bodyParser.json());
