@@ -22,7 +22,7 @@
   "scripts": {
     "start": "set PORT=3001 && start react-scripts start",
     "start-client-server": "node ../server",
-    "start-react-scripts": "react-scripts start",
+    "start-react-scripts": "export PORT=3001 && react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d ./build",

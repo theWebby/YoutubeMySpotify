@@ -21,6 +21,10 @@ export default class SpotifyApi {
         }
     }
 
+    get(url){
+        return this._makeRequest(url, 'GET', this.accessToken);
+    }
+
     getCurrentlyPlaying(){
         return this._makeRequest('https://api.spotify.com/v1/me/player/currently-playing', 'GET', this.accessToken);
     }
@@ -48,6 +52,10 @@ export default class SpotifyApi {
 
     getProfile(){
         return this._makeRequest('https://api.spotify.com/v1/me', 'GET', this.accessToken)
+    }
+
+    getTopTracks(){
+        return this._makeRequest('https://api.spotify.com/v1/me/top/tracks?limit=50', 'GET', this.accessToken)
     }
 
     getNewAccessToken(refreshToken){

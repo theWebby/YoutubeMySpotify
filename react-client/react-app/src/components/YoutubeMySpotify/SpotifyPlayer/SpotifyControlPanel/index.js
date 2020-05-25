@@ -13,6 +13,11 @@ class SpotifyControlPanel extends React.Component {
   }
 
   onSkip(){
+    if(this.props.playingContext === 'Your Top 50 Tracks'){
+      this.props.playNextFromTop50();
+      return;
+    }
+
     this.props.spotifyApi.skip().catch(e => {console.log(e)});
   }
 
