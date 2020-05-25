@@ -21,8 +21,8 @@ httpsApp.use(cors())
 httpsApp.use(spotifyTools)
 
 https.createServer({
-  key: fs.readFileSync('/etc/letsencrypt/live/youtubemyspotify.uk/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/youtubemyspotify.uk/cert.pem')
+  key: fs.readFileSync('../../../etc/letsencrypt/live/youtubemyspotify.uk/privkey.pem'),
+  cert: fs.readFileSync('../../../etc/letsencrypt/live/youtubemyspotify.uk/cert.pem')
 }, httpsApp)
 .listen(443, function () {
   console.log('Example app listening on port 3000! Go to https://localhost:3000/')
