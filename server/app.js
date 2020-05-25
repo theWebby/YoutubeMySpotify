@@ -27,7 +27,7 @@ httpsApp.use(spotifyTools)
 // })
 
 http.createServer(httpApp).listen(3000);
-
+console.log('Listening on 3000')
 
 
 // openssl req -nodes -new -x509 -keyout server.key -out server.cert
