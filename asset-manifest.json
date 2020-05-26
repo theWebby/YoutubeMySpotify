@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/YoutubeMySpotify/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/YoutubeMySpotify/static/js/main.ae29d8e9.chunk.js",
-    "main.js.map": "/YoutubeMySpotify/static/js/main.ae29d8e9.chunk.js.map",
+    "main.css": "/YoutubeMySpotify/static/css/main.69eda509.chunk.css",
+    "main.js": "/YoutubeMySpotify/static/js/main.faa17e67.chunk.js",
+    "main.js.map": "/YoutubeMySpotify/static/js/main.faa17e67.chunk.js.map",
     "runtime-main.js": "/YoutubeMySpotify/static/js/runtime-main.30461448.js",
     "runtime-main.js.map": "/YoutubeMySpotify/static/js/runtime-main.30461448.js.map",
     "static/css/2.47e06e2e.chunk.css": "/YoutubeMySpotify/static/css/2.47e06e2e.chunk.css",
-    "static/js/2.eec84e1e.chunk.js": "/YoutubeMySpotify/static/js/2.eec84e1e.chunk.js",
-    "static/js/2.eec84e1e.chunk.js.map": "/YoutubeMySpotify/static/js/2.eec84e1e.chunk.js.map",
+    "static/js/2.ea32d189.chunk.js": "/YoutubeMySpotify/static/js/2.ea32d189.chunk.js",
+    "static/js/2.ea32d189.chunk.js.map": "/YoutubeMySpotify/static/js/2.ea32d189.chunk.js.map",
     "index.html": "/YoutubeMySpotify/index.html",
-    "precache-manifest.ebb2c4767e377f9c837f000a91a1116f.js": "/YoutubeMySpotify/precache-manifest.ebb2c4767e377f9c837f000a91a1116f.js",
+    "precache-manifest.55b47ee8fa084c5efb87ef08307ddbb0.js": "/YoutubeMySpotify/precache-manifest.55b47ee8fa084c5efb87ef08307ddbb0.js",
     "service-worker.js": "/YoutubeMySpotify/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/YoutubeMySpotify/static/css/2.47e06e2e.chunk.css.map",
-    "static/css/main.5ecd60fb.chunk.css.map": "/YoutubeMySpotify/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.eec84e1e.chunk.js.LICENSE.txt": "/YoutubeMySpotify/static/js/2.eec84e1e.chunk.js.LICENSE.txt",
+    "static/css/main.69eda509.chunk.css.map": "/YoutubeMySpotify/static/css/main.69eda509.chunk.css.map",
+    "static/js/2.ea32d189.chunk.js.LICENSE.txt": "/YoutubeMySpotify/static/js/2.ea32d189.chunk.js.LICENSE.txt",
     "static/media/LogoOnScreen.png": "/YoutubeMySpotify/static/media/LogoOnScreen.52bf02e0.png",
     "static/media/SpotifyOnPhoneSignal.png": "/YoutubeMySpotify/static/media/SpotifyOnPhoneSignal.347114d2.png"
   },
   "entrypoints": [
     "static/js/runtime-main.30461448.js",
     "static/css/2.47e06e2e.chunk.css",
-    "static/js/2.eec84e1e.chunk.js",
-    "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.ae29d8e9.chunk.js"
+    "static/js/2.ea32d189.chunk.js",
+    "static/css/main.69eda509.chunk.css",
+    "static/js/main.faa17e67.chunk.js"
   ]
 }
