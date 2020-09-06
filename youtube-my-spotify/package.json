@@ -20,14 +20,11 @@
     "styled-components": "^5.0.1"
   },
   "scripts": {
-    "start": "set PORT=3001 && start react-scripts start",
-    "start-client-server": "node ../server",
-    "start-react-scripts": "export PORT=3001 && react-scripts start",
+    "start": "set PORT=3001 && react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d ./build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "deploy": "npm run deploy-from-build",
+    "deploy-from-build": "gh-pages -d ./build"
   },
   "eslintConfig": {
     "extends": "react-app"
