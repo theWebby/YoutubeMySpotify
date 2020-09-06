@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/YoutubeMySpotify/static/css/main.69eda509.chunk.css",
-    "main.js": "/YoutubeMySpotify/static/js/main.523d6491.chunk.js",
-    "main.js.map": "/YoutubeMySpotify/static/js/main.523d6491.chunk.js.map",
+    "main.js": "/YoutubeMySpotify/static/js/main.633811ec.chunk.js",
+    "main.js.map": "/YoutubeMySpotify/static/js/main.633811ec.chunk.js.map",
     "runtime-main.js": "/YoutubeMySpotify/static/js/runtime-main.30461448.js",
     "runtime-main.js.map": "/YoutubeMySpotify/static/js/runtime-main.30461448.js.map",
     "static/css/2.47e06e2e.chunk.css": "/YoutubeMySpotify/static/css/2.47e06e2e.chunk.css",
-    "static/js/2.67467135.chunk.js": "/YoutubeMySpotify/static/js/2.67467135.chunk.js",
-    "static/js/2.67467135.chunk.js.map": "/YoutubeMySpotify/static/js/2.67467135.chunk.js.map",
+    "static/js/2.9a061664.chunk.js": "/YoutubeMySpotify/static/js/2.9a061664.chunk.js",
+    "static/js/2.9a061664.chunk.js.map": "/YoutubeMySpotify/static/js/2.9a061664.chunk.js.map",
     "index.html": "/YoutubeMySpotify/index.html",
-    "precache-manifest.84d38f7149c24d9c1a42bd43664135f4.js": "/YoutubeMySpotify/precache-manifest.84d38f7149c24d9c1a42bd43664135f4.js",
+    "precache-manifest.4e741b0faea832e9a7c04738f7de9a10.js": "/YoutubeMySpotify/precache-manifest.4e741b0faea832e9a7c04738f7de9a10.js",
     "service-worker.js": "/YoutubeMySpotify/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/YoutubeMySpotify/static/css/2.47e06e2e.chunk.css.map",
     "static/css/main.69eda509.chunk.css.map": "/YoutubeMySpotify/static/css/main.69eda509.chunk.css.map",
-    "static/js/2.67467135.chunk.js.LICENSE.txt": "/YoutubeMySpotify/static/js/2.67467135.chunk.js.LICENSE.txt",
+    "static/js/2.9a061664.chunk.js.LICENSE.txt": "/YoutubeMySpotify/static/js/2.9a061664.chunk.js.LICENSE.txt",
     "static/media/LogoOnScreen.png": "/YoutubeMySpotify/static/media/LogoOnScreen.52bf02e0.png",
     "static/media/SpotifyOnPhoneSignal.png": "/YoutubeMySpotify/static/media/SpotifyOnPhoneSignal.347114d2.png"
   },
   "entrypoints": [
     "static/js/runtime-main.30461448.js",
     "static/css/2.47e06e2e.chunk.css",
-    "static/js/2.67467135.chunk.js",
+    "static/js/2.9a061664.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.523d6491.chunk.js"
+    "static/js/main.633811ec.chunk.js"
   ]
 }
