@@ -5,7 +5,7 @@ export const RoundedButton = styled(Button)`
     border-radius: 100px;
     line-height: 0;
     padding: 10px;
-    margin: 10px;
+    margin: 20px;
 `
 
 export const ControlPanelContainer = styled.div`

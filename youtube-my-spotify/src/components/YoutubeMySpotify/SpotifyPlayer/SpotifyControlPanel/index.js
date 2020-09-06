@@ -8,10 +8,6 @@ class SpotifyControlPanel extends React.Component {
     super();
   }
 
-  onPlay(){
-    this.props.spotifyApi.play().catch(e => {console.log(e)});
-  }
-
   onSkip(){
     if(this.props.playingContext === 'Your Top 50 Tracks'){
       this.props.playNextFromTop50();
@@ -32,7 +28,6 @@ class SpotifyControlPanel extends React.Component {
     return (
       <div>
         <RoundedButton variant='secondary' onClick={() => this.onPrev()}><IoIosSkipBackward /></RoundedButton>
-    <RoundedButton variant='secondary' onClick={() => this.onPlay()}>{currentlyPlaying.is_playing ? <IoMdPause /> : <IoMdPlay />}</RoundedButton>
         <RoundedButton variant='secondary' onClick={() => this.onSkip()}><IoIosSkipForward /></RoundedButton>
       </div>
     )

@@ -43,6 +43,12 @@ class WelcomePage extends React.Component {
     addNewAccountRedirect();
   }
 
+  componentDidMount = () => {
+    if (this.props.currentUser) {
+      return this.props.history.push("/YoutubeMySpotify");
+    }
+  }
+
   render = () => {
     return (
       <Container fluid>

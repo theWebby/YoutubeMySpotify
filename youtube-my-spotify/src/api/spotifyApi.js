@@ -29,6 +29,10 @@ export default class SpotifyApi {
         return this._makeRequest('https://api.spotify.com/v1/me/player/currently-playing', 'GET', this.accessToken);
     }
 
+    play(){
+        return this._makeRequest('https://api.spotify.com/v1/me/player/play', 'PUT', this.accessToken);
+    }
+
     pause(){
         return this._makeRequest('https://api.spotify.com/v1/me/player/pause', 'PUT', this.accessToken)
     }
@@ -36,7 +40,6 @@ export default class SpotifyApi {
     skip(){
         return this._makeRequest('https://api.spotify.com/v1/me/player/next', 'POST', this.accessToken);
     }
-
     
     prev(){
         return this._makeRequest('https://api.spotify.com/v1/me/player/previous', 'POST', this.accessToken);
@@ -44,10 +47,6 @@ export default class SpotifyApi {
 
     seek(ms){
         return this._makeRequest(`https://api.spotify.com/v1/me/player/seek?position_ms=${ms}`, 'PUT', this.accessToken);
-    }
-
-    play(){
-        return this._makeRequest('https://api.spotify.com/v1/me/player/play', 'PUT', this.accessToken);
     }
 
     getProfile(){
