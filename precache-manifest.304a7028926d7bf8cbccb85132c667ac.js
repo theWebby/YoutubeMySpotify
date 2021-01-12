@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "96c99631aaa262b2ecb78154e9690358",
+    "revision": "3e9e9480cea190deb33d4fd6bf762c8a",
     "url": "/YoutubeMySpotify/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/YoutubeMySpotify/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "b8f2ecf4a06458f555c1",
+    "revision": "e866e38b0d4a8deedf65",
     "url": "/YoutubeMySpotify/static/css/main.69eda509.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/YoutubeMySpotify/static/js/2.aaf691bb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b8f2ecf4a06458f555c1",
-    "url": "/YoutubeMySpotify/static/js/main.5e6514a7.chunk.js"
+    "revision": "e866e38b0d4a8deedf65",
+    "url": "/YoutubeMySpotify/static/js/main.dc180c92.chunk.js"
   },
   {
     "revision": "8b6718e1b15d4b69724c",
