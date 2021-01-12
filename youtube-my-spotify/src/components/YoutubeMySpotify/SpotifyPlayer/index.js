@@ -3,6 +3,7 @@ import SpotifyApi from "../../../api/spotifyApi";
 import request from "../../../api/request";
 import { timeout } from "../helpers";
 import SpotifyControlPanel from "./SpotifyControlPanel";
+import { SERVER_URL } from "../../../constants";
 
 const UPDATE_CURRENTLY_PLAYING_INTERVAL_MS = 1500;
 const END_OF_SONG_BUFFER_MS = 15000;
@@ -115,7 +116,7 @@ class SpotifyPlayer extends React.Component {
     const songName = currentlyPlaying.item.name;
     const artistName = currentlyPlaying.item.artists[0].name;
 
-    return await request("https://youtubemyspotify.uk/getVideoId", "POST", "", {
+    return await request(`${SERVER_URL}getVideoId`, "POST", "", {
       songName,
       artistName,
     });

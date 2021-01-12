@@ -1,4 +1,5 @@
 import request from "./request";
+import { SERVER_URL } from "../constants";
 
 export default class SpotifyApi {
   constructor(accessToken, refreshToken) {
@@ -106,7 +107,7 @@ export default class SpotifyApi {
 
   getNewAccessToken(refreshToken) {
     return request(
-      `https://youtubemyspotify.uk/refresh_token?refresh_token=${this.refreshToken}`,
+      `${SERVER_URL}refresh_token?refresh_token=${this.refreshToken}`,
       "GET"
     );
   }
